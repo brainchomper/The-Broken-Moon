@@ -5,7 +5,7 @@ module.exports = function (app) {
 	// index route loads view.html
 	app.get('/', function (req, res) {
 		res.render('index');
-	})};
+	});
 
 	app.get('/menu', function (req, res){
 		res.render('menu');
@@ -22,3 +22,4 @@ module.exports = function (app) {
 	app.get('/game_over', function(req, res){
 		res.render('game_over');
 	});
+};

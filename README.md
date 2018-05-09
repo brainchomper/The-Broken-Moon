@@ -9,3 +9,5 @@
 3. The user's attacks will run logic on the page using Jquery and JS
 
 4. After the page logic is run we will update the user character database
+
+5. 
