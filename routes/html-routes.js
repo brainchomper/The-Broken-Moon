@@ -18,3 +18,7 @@ module.exports = function (app) {
 	app.get('/fight_screen', function(req, res){
 		res.render('fight_screen');
 	});
+
+	app.get('/game_over', function(req, res){
+		res.render('game_over');
+	});
