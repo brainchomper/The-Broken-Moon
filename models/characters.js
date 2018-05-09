@@ -1,12 +1,17 @@
-module.exports =function (sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
 	var Character = sequelize.define("Character", {
 		user_owner: DataTypes.INTEGER,
-		character_class: DataTypes.STRING,
+		character_class: {
+			validate: {
+				notNull: true
+			},
+			type: DataTypes.STRING,
+		},
 		// end character_class
 		character_name1: {
 			type: DataTypes.STRING,
 			validate: {
-				is: ["^[a-z]+$",'i'],
+				is: ["^[a-z]+$", 'i'],
 				notNull: true
 			}
 		},
@@ -14,11 +19,18 @@ module.exports =function (sequelize, DataTypes){
 		character_name2: {
 			type: DataTypes.STRING,
 			validate: {
-				is: ["^[a-z]+$",'i'],
+				is: ["^[a-z]+$", 'i'],
 				notNull: true
 			}
 		},
 		// end character_name2
+		character_img: {
+			type: DataTypes.STRING,
+			validate: {
+				notNull: true
+			}
+		},
+		// end character img
 		hp: DataTypes.INTEGER,
 		// end hp
 		str: DataTypes.INTEGER,
