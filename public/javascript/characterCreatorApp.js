@@ -1,3 +1,11 @@
+// list of variables that we'll need for the character build
+var hp;
+var str;
+var agi;
+var int;
+var charImage;
+
+
 $('#submitCharacter').on("click", function(event){
 	// preventing the default
 	event.preventDefault();
@@ -13,16 +21,19 @@ evaluateClass(charClass);
 		characterClass: charClass,
 		character_name1: $("#charName1").val(),
 		character_name2:  $("#charName2").val(),
+		character_img: charImage,
+		hp: hp,
+		str: str,
+		agi: agi,
+		int: int,
+		exp: 0,
+		loot: ""
+	};
 
-	}
 });
 
-var hp;
-var str;
-var agi;
-var int;
 
-
+// uses a switchase on the classInput to change different attributes
 function evaluateClass(classInput){
 	switch(classInput){
 		case "Wizard": {
@@ -30,6 +41,7 @@ function evaluateClass(classInput){
 			str: 5;
 			agi: 10;
 			int: 35;
+			charImage: "need a file name"
 		}
 		break;
 		case "Rogue":{
@@ -37,14 +49,17 @@ function evaluateClass(classInput){
 			str: 10;
 			agi: 15;
 			int: 10;
+			charImage: "need a file name"
 		}
 		break;
 		case "Warrior": {
 			hp: 45;
 			str: 20;
 			agi: 15;
-
+			int: 5;
+			charImage: "need a file name"
 		}
+		break;
 	}
 
 }

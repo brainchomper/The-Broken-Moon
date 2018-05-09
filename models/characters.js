@@ -46,4 +46,6 @@ module.exports = function (sequelize, DataTypes) {
 		}
 		// end loot
 	})
+
+	return Character;
 };
