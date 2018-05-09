@@ -30,6 +30,14 @@ evaluateClass(charClass);
 		loot: ""
 	};
 
+	$.ajax({
+		url: "/api/characters",
+		method: "POST",
+		data: newChar,
+		dataType: "json"
+	}
+	)
+
 });
 
 
