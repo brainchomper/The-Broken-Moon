@@ -24,3 +24,5 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+// <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">  font
