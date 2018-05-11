@@ -12,7 +12,10 @@ module.exports =function (sequelize, DataTypes){
 			isEmail: true,           // checks for email format (foo@bar.com)
 			}
 		},
-		password: DataTypes.STRING
+		password: DataTypes.STRING,
+		userPhoto:{
+			type: DataTypes.STRING
+		}
 	})
 
 	return User;
