@@ -25,8 +25,9 @@ module.exports = function(app) {
 			user_name: req.body.user_name,
 			user_email: req.body.user_email,
 			user_photo: req.body.user_photo
-		}
-		)
+		}).then(function(dbuser){
+			res.redirect("/menu")
+		})
 	})
 	// end
 };
