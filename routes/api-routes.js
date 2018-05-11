@@ -2,6 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.post("/api/characters", function(req, res){
+		console.log("req.body", req.body)
 		db.Character.create(req.body)
 		.then(function(dbCharacter){
 			res.redirect("/menu")
@@ -10,14 +11,12 @@ module.exports = function(app) {
 
 	app.get("/api/characters", function(req, res){
 		db.Character.findAll({
-			where: {
-				user_owner: req.body.id
-			}
+		
 		})
 		.then(function(dbCharacter){
-			res.render(dbCharacter);
+			res.json(dbCharacter);
 		});
 	});
-
+console.log("ugh")
 	// end
 };

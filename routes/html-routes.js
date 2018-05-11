@@ -12,6 +12,7 @@ module.exports = function (app) {
 	});
 
 	app.get('/character_creator', function(req, res){
+		console.log("in character_creator");
 		res.render('character_creator');
 	});
 
