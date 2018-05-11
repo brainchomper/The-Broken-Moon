@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var sequelize = require("sequelize");
+var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -15,7 +16,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 require("./routes/html-routes.js")(app);
 
@@ -26,3 +27,6 @@ db.sequelize.sync({ force: true }).then(function() {
 });
 
 // <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">  font
+
+// dump data
+// { force: true }

@@ -2,51 +2,51 @@
 // DATA
 // Below data will hold all of the reserved tables.
 // ===============================================================================
-var monstersHigh = [
+var monstersMedium = [
 	{
-		"name": "Dragon",
+		"name": "Necromancer",
 		"photo": "",
 		"scores": [
 		
 		]
 	},
 	{
-		"name": "Demon",
+		"name": "Gorgon",
+		"photo": "/gorgon.png",
+		"scores": [
+
+		]
+	},
+	{
+		"name": "Gunslinger",
 		"photo": "",
 		"scores": [
 
 		]
 	},
 	{
-		"name": "Vampire",
+		"name": "Bear",
 		"photo": "",
 		"scores": [
 
 		]
 	},
 	{
-		"name": "Beholder",
+		"name": "Mummy",
 		"photo": "",
 		"scores": [
 
 		]
 	},
 	{
-		"name": "Wraith",
+		"name": "Guard",
 		"photo": "",
 		"scores": [
 
 		]
 	},
 	{
-		"name": "Hell-Hound",
-		"photo": "",
-		"scores": [
-
-		]
-	},
-	{
-		"name": "Mind-Flayer",
+		"name": "Dune-Stalker",
 		"photo": "",
 		"scores": [
 
@@ -56,4 +56,4 @@ var monstersHigh = [
 
 
 // Note how we export the array. This makes it accessible to other files using require.
-module.exports = monstersHigh;
+module.exports = monstersMedium;

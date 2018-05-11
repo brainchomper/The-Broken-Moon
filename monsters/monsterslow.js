@@ -19,35 +19,35 @@ var monstersLow = [
 	},
 	{
 		"name": "Slime",
-		"photo": "",
+		"photo": "/slime.png",
 		"scores": [
 
 		]
 	},
 	{
 		"name": "Wolf",
-		"photo": "",
+		"photo": "/wolf.png",
 		"scores": [
 
 		]
 	},
 	{
 		"name": "Skeleton",
-		"photo": "",
+		"photo": "/skeleman.png",
 		"scores": [
 
 		]
 	},
 	{
 		"name": "Zombie",
-		"photo": "",
+		"photo": "/zombie.png",
 		"scores": [
 
 		]
 	},
 	{
 		"name": "Fairy",
-		"photo": "",
+		"photo": "/fairy.png",
 		"scores": [
 
 		]
