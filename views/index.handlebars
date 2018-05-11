@@ -10,16 +10,20 @@
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	$.post("/api/user",
-    {
-        user_id: profile.getId(),
+
+	 $.ajax({
+        url:"/api/user ",
+        type:"POST",
+
+        data:{
+          user_id: profile.getId(),
 				user_name: profile.getName(),
 				user_email: profile.getEmail(),
         user_photo: profile.getImageUrl()
-    },
-    function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
+        },
+				
+				});
+
 }
 
 
