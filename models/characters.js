@@ -30,6 +30,7 @@ module.exports = function (sequelize, DataTypes) {
 				notNull: true
 			}
 		},
+		level: DataTypes.INTEGER,
 		// end character img
 		hp: DataTypes.INTEGER,
 		// end hp

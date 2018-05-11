@@ -12,16 +12,19 @@ $('#submitCharacter').on("click", function(event){
 	// make a new object for the api call
 
 	//get the values from the page and login info
-	var charClass = $("#characterClass option:selected");
+	var charClass = $("#characterClass option:selected").text();
 
 evaluateClass(charClass);
 
 	var newChar = {
-		user_owner: ****figure this out****,
+		// we need to access this from the local storage 
+		user_owner: *****neeed to figure this out*****,
+
 		characterClass: charClass,
 		character_name1: $("#charName1").val(),
 		character_name2:  $("#charName2").val(),
 		character_img: charImage,
+		level: 1,
 		hp: hp,
 		str: str,
 		agi: agi,
