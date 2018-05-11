@@ -1,7 +1,6 @@
 <div class="row mainGame">
 	<div class="col"></div>
 	<div class="col mainpage-col">
-<<<<<<< HEAD
 		<img src="./images/broken-moon.png" class="img-fluid" alt="Broken Moon">
 		<div class="g-signin2" data-onsuccess="onSignIn"></div>
 		<script>
@@ -11,6 +10,10 @@
 				console.log('Name: ' + profile.getName());
 				console.log('Image URL: ' + profile.getImageUrl());
 				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+				        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
 
 				// Are they in the DB?
 				// Yes: forward to menu
@@ -34,44 +37,19 @@
 					});
 				}
 			}
-
-
-
-
 		</script>
-		<a href="#" onclick="signOut();">Sign out</a>
+
+{{!-- logout btn --}}
+		<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
+
+		{{!-- logout js --}}
 		<script>
 			function signOut() {
-				var auth2 = gapi.auth2.getAuthInstance();
-				auth2.signOut().then(function () {
-					console.log('User signed out.');
-				});
+				var logout = function () {
+					document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon-herokuapp.com"
+				}
 			}
 		</script>
-=======
-<img src="./images/broken-moon.png" class="img-fluid"alt="Broken Moon">
-
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<script>
-	function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-</script>
-<a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
-
->>>>>>> ba27f109c18235528d6b4b642ceafdf449160465
 	</div>
 	<div class="col"></div>
 </div>
