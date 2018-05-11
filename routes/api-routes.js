@@ -18,9 +18,9 @@ module.exports = function(app) {
 			res.render(dbCharacter);
 		});
 	});
-
+// user creation
 	app.post("/api/user", function(req, res){
-		db.users.add({
+		db.User.add({
 			user_id: req.body.user_id,
 			user_name: req.body.user_name,
 			user_email: req.body.user_email,
