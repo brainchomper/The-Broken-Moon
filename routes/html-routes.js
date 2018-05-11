@@ -21,19 +21,6 @@ module.exports = function (app) {
 
 	app.get('/game_over', function(req, res){
 		res.render('game_over');
-	});
-// when the user goes to /character_selector
-	app.get('/character_selector', function(req, res){
-		// do a query against the Character db using the id as the reference
-		db.Character.findAll({
-			where: 
-			{
-				user_owner: req.body.id
-			}
-			// and then render the results
-		}).then(function(charResults){
-			res.render(charResults)
-		})
-		;
-	});
-};
+
+	})};
+
