@@ -1,12 +1,13 @@
 {{!-- logout btn --}}
-		<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
+<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
 
-		{{!-- logout js --}}
-		<script>
-			function signOut() {
-				document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
-				}
-		</script>
-	</div>
-	<div class="col"></div>
-</div>
+
+
+{{!-- JS --}}
+<script>
+	//logout
+	function signOut() {
+		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
+	}
+				// end logout
+</script>
