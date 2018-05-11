@@ -1,44 +1,52 @@
 <div class="row mainGame">
 	<div class="col"></div>
 	<div class="col mainpage-col">
-<img src="./images/broken-moon.png" class="img-fluid"alt="Broken Moon">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<script>
-	function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		<img src="./images/broken-moon.png" class="img-fluid" alt="Broken Moon">
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<script>
+			function onSignIn(googleUser) {
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-	 $.ajax({
-        url:"/api/user ",
-        type:"POST",
+				// Are they in the DB?
+				// Yes: forward to menu
+				// No: dbCall();
 
-        data:{
-          user_id: profile.getId(),
-				user_name: profile.getName(),
-				user_email: profile.getEmail(),
-        user_photo: profile.getImageUrl()
-        },
-				
+				dbCall();
+				function dbCall() {
+					$.ajax({
+						url: "/api/user ",
+						type: "POST",
+
+						data: {
+							user_id: profile.getId(),
+							user_name: profile.getName(),
+							user_email: profile.getEmail(),
+							user_photo: profile.getImageUrl()
+						},
+
+					}).then(function (data) {
+						location.href = "/menu";
+					});
+				}
+			}
+
+
+
+
+		</script>
+		<a href="#" onclick="signOut();">Sign out</a>
+		<script>
+			function signOut() {
+				var auth2 = gapi.auth2.getAuthInstance();
+				auth2.signOut().then(function () {
+					console.log('User signed out.');
 				});
-
-}
-
-
-    
-
-</script>
-<a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+			}
+		</script>
 	</div>
 	<div class="col"></div>
 </div>
