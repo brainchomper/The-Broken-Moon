@@ -4,7 +4,7 @@
 
 
 <script>
-					$.post("/api/friends", userData).then(function(res){
+					$.post("/api/characters", userData).then(function(res){
 						console.log(res);
 						$('#monsterImg').attr("src", res.photo);
 					})
