@@ -5,10 +5,28 @@
 
 {{!-- JS --}}
 <script>
+	var cookies = Cookies.get('id_token');
+	console.log("cookie ", cookies)
+	console.log("menu handlebars")
+	$.ajax({
+		url: "/api/user/info",
+		type: "GET",
+
+		data: {
+			id_token: cookies
+		},
+
+	}).then(function (data) {
+
+		console.log("databse user", data);
+	})
+		
+
 	//var profile = require("profile");
 	//logout
 	//console.log(profile);
 	function signOut() {
+		Cookies.remove('id_token');
 		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
 	}
 				// end logout

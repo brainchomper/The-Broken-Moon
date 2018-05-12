@@ -16,6 +16,8 @@
 
 {{!-- JS --}}
 <script>
+	var cookie = Cookies.get();
+	console.log("cookie ----" + cookie);
 	//google auth code 
 	function onSignIn(googleUser) {
 		var profile = googleUser.getBasicProfile();
@@ -26,7 +28,7 @@
 		// The ID token you need to pass to your backend:
 		var id_token = googleUser.getAuthResponse().id_token;
 		console.log("ID Token: " + id_token);
-Cookies.set('name', id_token);
+Cookies.set('id_token', id_token);
 		// Are they in the DB?
 		// Yes: forward to menu
 		// No: dbCall();
@@ -34,7 +36,7 @@ Cookies.set('name', id_token);
 		dbCall();
 		function dbCall() {
 			$.ajax({
-				url: "/api/user ",
+				url: "/api/user",
 				type: "POST",
 
 				data: {
@@ -49,7 +51,7 @@ Cookies.set('name', id_token);
 				location.href = "/menu";
 			});
 		}
-		module.exports(profile);
+
 	}// end gogole auth
 	//logout
 	function signOut() {
