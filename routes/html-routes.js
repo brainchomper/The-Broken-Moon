@@ -21,4 +21,6 @@ module.exports = function (app) {
 
 	app.get('/game_over', function(req, res){
 		res.render('game_over');
+
 	})};
+
