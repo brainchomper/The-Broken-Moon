@@ -13,7 +13,8 @@
 
 		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
 
-		<a class="btn btn-signIn" href="/" role="button">Return To Login Screen</a>
+		{{!-- logout btn --}}
+		<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
 
 
 	</div>
@@ -44,4 +45,5 @@
 		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
 	}
 // end logout
+</script>
 
