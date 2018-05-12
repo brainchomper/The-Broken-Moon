@@ -7,6 +7,12 @@ var monstersHigh = [
 		"name": "Dragon",
 		"photo": "",
 		"scores": [
+			"Dragon", //name
+			10, //strength
+			7, //agility
+			10, //intelligence
+			15, //hitpoints
+			15 //experience points
 		
 		]
 	},
@@ -14,6 +20,12 @@ var monstersHigh = [
 		"name": "Demon",
 		"photo": "/demon.png",
 		"scores": [
+			"Demon", //name
+			10, //strength
+			10, //agility
+			5, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
@@ -21,6 +33,12 @@ var monstersHigh = [
 		"name": "Vampire",
 		"photo": "/vampire.png",
 		"scores": [
+			"Necromancer", //name
+			8, //strength
+			10, //agility
+			8, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
@@ -28,13 +46,25 @@ var monstersHigh = [
 		"name": "Eye",
 		"photo": "/eye.png",
 		"scores": [
+			"Eye", //name
+			7, //strength
+			8, //agility
+			10, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
 	{
-		"name": "Wraith",
-		"photo": "",
+		"name": "Ghost",
+		"photo": "/ghost.png",
 		"scores": [
+			"Ghost", //name
+			7, //strength
+			8, //agility
+			8, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
@@ -42,6 +72,12 @@ var monstersHigh = [
 		"name": "Hell-Hound",
 		"photo": "",
 		"scores": [
+			"Hell-Hound", //name
+			10, //strength
+			10, //agility
+			5, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
@@ -49,6 +85,12 @@ var monstersHigh = [
 		"name": "Mind-Flayer",
 		"photo": "",
 		"scores": [
+			"Necromancer", //name
+			10, //strength
+			10, //agility
+			10, //intelligence
+			15, //hitpoints
+			15 //experience points
 
 		]
 	},
