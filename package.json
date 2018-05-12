@@ -1,10 +1,11 @@
 {
   "name": "The-Broken-Moon",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. This is a fullstack app using Sequelize, Handlebars, NODEJS, Express, MDBootstrap, and Google-auth-Library to create a ladder RPG in a fantasy setting.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
