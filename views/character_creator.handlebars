@@ -1,11 +1,16 @@
 <div class= "mainpage-col">
 {{!-- header --}}
 <h1>Character Creator</h1>
+
+<a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a>
+
 {{!-- action form to capture user input --}}
 <form>
 	{{!-- character class options for new character --}}
 	Character Class:
+
 	<select class="btn" id="class">
+
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
 		<option value="Rogue">Rogue</option>		
@@ -18,6 +23,7 @@
 	<br>
 	{{!-- get a character name --}}
 	Character First Name:
+
 	<input type="text">
 	<br>
 	{{!-- get a character last name --}}
@@ -31,6 +37,7 @@
 </div>
 
 {{!-- look up "select on change javascript" --}}
+
 
 <script>
 	if ($("#class").val() === "Wizard") {
