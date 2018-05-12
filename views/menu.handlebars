@@ -1,15 +1,22 @@
-{{!-- logout btn --}}
-<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
+
+<div class="row menuGame">
+	<div class="col"></div>
+	<div class="col mainpage-col">
+		<img src="./images/broken-moon.png" class="img-fluid" alt="Broken Moon">
+		<img src= "./images/brokenmoontitle.png"
+		class="img-fluid" alt="Broken Moon">
+		<div class="g-menu" data-theme="dark"></div>
 
 
 
-{{!-- JS --}}
-<script>
-	//var profile = require("profile");
-	//logout
-	//console.log(profile);
-	function signOut() {
-		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
-	}
-				// end logout
-</script>
+		<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
+
+		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
+
+		<a class="btn btn-signIn" href="/" role="button">Return To Login Screen</a>
+
+
+	</div>
+	<div class="col"></div>
+</div>
+
