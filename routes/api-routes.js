@@ -28,6 +28,7 @@ module.exports = function (app) {
 				user_id: req.body.user_id
 			},
 			defaults: {
+				id_token: req.body.id_token,
 				user_id: req.body.user_id,
 				user_name: req.body.user_name,
 				user_email: req.body.user_email,
