@@ -27,6 +27,7 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 });
 
+// <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">  font
 
 // dump data
 // { force: true }

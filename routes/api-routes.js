@@ -1,15 +1,18 @@
 var db = require("../models");
 
-module.exports = function(app) {
-	app.post("/api/characters", function(req, res){
-		console.log("req.body", req.body)
+
+console.log('----- db.User.', db.User);
+
+module.exports = function (app) {
+	app.post("/api/characters", function (req, res) {
+
 		db.Character.create(req.body)
-		.then(function(dbCharacter){
-			res.redirect("/menu")
-		})
+			.then(function (dbCharacter) {
+				res.redirect("/menu")
+			})
 	})
 
-	app.get("/api/characters", function(req, res){
+	app.get("/api/characters", function (req, res) {
 		db.Character.findAll({
 		where:{
 		user_owner: 1}
@@ -20,5 +23,6 @@ module.exports = function(app) {
 			res.render()
 		});
 	});
+
 	// end
 };
