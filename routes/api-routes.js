@@ -11,12 +11,14 @@ module.exports = function(app) {
 
 	app.get("/api/characters", function(req, res){
 		db.Character.findAll({
-		
+		where:{
+		user_owner: 1}
 		})
 		.then(function(dbCharacter){
-			res.json(dbCharacter);
+			console.log(dbCharacter)
+			res.render("character_selector" , dbCharacter);
+			res.render()
 		});
 	});
-console.log("ugh")
 	// end
 };
