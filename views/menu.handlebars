@@ -25,6 +25,7 @@
 <script>
 //check for login then redirect if not
 	var cookies = Cookies.get('id_token');
+	console.log(cookies)
 	if (cookies == undefined) {
 		location.href = "/";
 	}
