@@ -54,7 +54,7 @@ function evaluateClass(classInput){
 			hp = 10;
 			str = 5;
 			agi = 10;
-			int = 20;
+			int = 15;
 			charImage: "/assets/characterimages/wizard.png";
 
 
@@ -65,19 +65,19 @@ function evaluateClass(classInput){
 		case "Rogue":{
 			hp = 10;
 			str = 10;
-			agi =20;
+			agi =15;
 			int = 5;
-			charImage: "need a file name"
+			charImage: "/assets/characterimages/rogue.png"
 		}
 		console.log("HP, rogue" , hp)
 
 		break;
 		case "Warrior": {
 			hp =10;
-			str =20;
+			str =15;
 			agi = 5;
 			int = 10;
-			charImage: "need a file name"
+			charImage: "/assets/characterimages/warrior.png"
 			console.log("HP," , hp)
 
 		}

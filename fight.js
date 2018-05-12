@@ -39,7 +39,7 @@ function Character(name, strength, agility, intelligence, hitpoints, xp) {
 	};
 }
 
-// creates two unique characters using the "character" constructor
+// creates unique characters using the "character" constructor
 var warrior = new Character("Crusher", 25, 15, 20, 10, 0);
 var rogue = new Character("Dodger", 20, 25, 15, 10, 0);
 var wizard = new Character("Merlin", 15, 20, 25, 10, 0);
