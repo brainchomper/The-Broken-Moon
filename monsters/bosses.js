@@ -7,12 +7,11 @@ var bosses = [
 		"name": "Sloth",
 		"photo": "/sloth.png",
 		"scores": [
-			"Sloth", //name
-			7, //strength
-			3, //agility
-			4, //intelligence
-			12, //hitpoints
-			12 //experience points
+			hp = 12,
+			str = 6,
+			agi = 3,
+			int = 6,
+			exp = 7
 
 		]
 	},
@@ -20,12 +19,11 @@ var bosses = [
 		"name": "Envy",
 		"photo": "/envy.png",
 		"scores": [
-			"Envy", //name
-			8, //strength
-			10, //agility
-			8, //intelligence
-			20, //hitpoints
-			18 //experience points
+			hp = 18,
+			str = 8,
+			agi = 10,
+			int = 7,
+			exp = 12
 
 		]
 	},
@@ -33,12 +31,11 @@ var bosses = [
 		"name": "Lust",
 		"photo": "/lust.png",
 		"scores": [
-			"Lust", //name
-			10, //strength
-			9, //agility
-			7, //intelligence
-			30, //hitpoints
-			24 //experience points
+			hp = 24,
+			str = 10,
+			agi = 12,
+			int = 14,
+			exp = 17
 
 		]
 	},
@@ -46,12 +43,11 @@ var bosses = [
 		"name": "Gluttony",
 		"photo": "/gluttony.png",
 		"scores": [
-			"Necromancer", //name
-			15, //strength
-			9, //agility
-			8, //intelligence
-			50, //hitpoints
-			30 //experience points
+			hp = 31,
+			str = 15,
+			agi = 8,
+			int = 19,
+			exp = 24
 
 		]
 	},
@@ -59,12 +55,11 @@ var bosses = [
 		"name": "Greed",
 		"photo": "/greed.png",
 		"scores": [
-			"Greed", //name
-			18, //strength
-			13, //agility
-			16, //intelligence
-			58, //hitpoints
-			37 //experience points
+			hp = 40,
+			str = 18,
+			agi = 18,
+			int = 20,
+			exp = 30
 
 		]
 	},
@@ -72,12 +67,11 @@ var bosses = [
 		"name": "Wrath",
 		"photo": "/wrath.png",
 		"scores": [
-			"Wrath", //name
-			25, //strength
-			20, //agility
-			17, //intelligence
-			65, //hitpoints
-			45 //experience points
+			hp = 47,
+			str = 22,
+			agi = 20,
+			int = 22,
+			exp = 37
 
 		]
 	},
@@ -85,12 +79,11 @@ var bosses = [
 		"name": "Pride",
 		"photo": "/pride.png",
 		"scores": [
-			"Pride", //name
-			35, //strength
-			30, //agility
-			30, //intelligence
-			90, //hitpoints
-			65 //experience points
+			hp = 60,
+			str = 30,
+			agi = 30,
+			int = 30,
+			exp = 45
 
 		]
 	},
