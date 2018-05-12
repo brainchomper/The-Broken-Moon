@@ -1,3 +1,4 @@
+<div class= "mainpage-col">
 {{!-- header --}}
 <h1>Character Creator</h1>
 
@@ -7,17 +8,47 @@
 <form>
 	{{!-- character class options for new character --}}
 	Character Class:
-	<select id="characterClass">
+
+	<select class="btn" id="class">
+
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
 		<option value="Rogue">Rogue</option>		
 	</select>
+
+	<div>
+		<img id="displayChar" src= "">
+	</div>
+
+	<br>
 	{{!-- get a character name --}}
 	Character First Name:
-	<input type="text" id = "charName1">
+
+	<input type="text">
+	<br>
 	{{!-- get a character last name --}}
 	Character Last Name:
 	<input type="text" id = "charName2">
-<button id = "submitCharacter">Submit Your Character</button>
+<button id = "submitCharacter" type = "button">Submit Your Character</button>
+
+	<br>
+<button id = "submitCharacter" class="btn">Submit Your Character</button>
+
 
 </form>
+</div>
+
+{{!-- look up "select on change javascript" --}}
+
+
+<script>
+	if ($("#class").val() === "Wizard") {
+$('#displayChar').attr("src", "/assets/characterimages/wizard.png");
+	}
+	else ("#class" === "Warrior") {
+		$('#displayChar').attr("src", "/assets/characterimages/warrior.png");
+	}
+		else ("#class" === "Rogue") {
+		$('#displayChar').attr("src", "/assets/characterimages/rogue.png");
+	}
+</script>

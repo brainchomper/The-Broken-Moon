@@ -2,33 +2,30 @@ module.exports = function (sequelize, DataTypes) {
 	var Character = sequelize.define("Character", {
 		user_owner: DataTypes.INTEGER,
 		character_class: {
-			validate: {
-				notNull: true
-			},
 			type: DataTypes.STRING,
+			allowNull: false
 		},
 		// end character_class
 		character_name1: {
 			type: DataTypes.STRING,
 			validate: {
 				is: ["^[a-z]+$", 'i'],
-				notNull: true
-			}
+			},
+			allowNull: false
 		},
 		// end character_name1
 		character_name2: {
 			type: DataTypes.STRING,
 			validate: {
 				is: ["^[a-z]+$", 'i'],
-				notNull: true
-			}
+			},
+			allowNull: false
 		},
 		// end character_name2
 		character_img: {
 			type: DataTypes.STRING,
-			validate: {
-				notNull: true
-			}
+		
+			allowNull: false
 		},
 		level: DataTypes.INTEGER,
 		// end character img
