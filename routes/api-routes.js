@@ -25,11 +25,9 @@ module.exports = function (app) {
 	app.post("/api/user", function (req, res) {
 		db.User.findOrCreate({
 			where: {
-				user_id: req.body.user_id
+				id_token: req.body.id_token
 			},
 			defaults: {
-				id_token: req.body.id_token,
-				user_id: req.body.user_id,
 				user_name: req.body.user_name,
 				user_email: req.body.user_email,
 				user_photo: req.body.user_photo
