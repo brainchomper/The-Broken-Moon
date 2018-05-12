@@ -23,7 +23,6 @@ module.exports = function (app) {
 			res.render()
 		});
 	});
-<<<<<<< HEAD
 	// user creation
 
 	app.post("/api/user", function (req, res) {
@@ -55,8 +54,4 @@ module.exports = function (app) {
 	});
 
 	//end
-=======
-
-	// end
->>>>>>> 8bdb64da527e25fc660e20186cc573cf8898af73
 };
