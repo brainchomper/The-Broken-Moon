@@ -5,29 +5,28 @@
 
 {{!-- JS --}}
 <script>
+//check for login then redirect if not
 	var cookies = Cookies.get('id_token');
-	console.log("cookie ", cookies)
-	console.log("menu handlebars")
+	if (cookies == undefined) {
+		location.href = "/";
+	}
+// end login check
+
+//user data pull info
 	$.ajax({
 		url: "/api/user/info",
 		type: "GET",
-
 		data: {
 			id_token: cookies
-		},
-
-	}).then(function (data) {
-
+		},}).then(function (data) {
 		console.log("databse user", data);
 	})
-		
+//end user data pull
 
-	//var profile = require("profile");
-	//logout
-	//console.log(profile);
+//logout
 	function signOut() {
 		Cookies.remove('id_token');
 		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://the-broken-moon.herokuapp.com/"
 	}
-				// end logout
+// end logout
 </script>
