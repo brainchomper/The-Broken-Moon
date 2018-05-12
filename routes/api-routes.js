@@ -23,6 +23,7 @@ module.exports = function (app) {
 			res.render()
 		});
 	});
+  
 	// user creation
 
 	app.post("/api/user", function (req, res) {
@@ -48,10 +49,8 @@ module.exports = function (app) {
 				id_token: req.query.id_token
 			}
 		}).then(function (dbuser) {
-			console.log("&&&&&&&", dbuser)
 				res.json(dbuser)
 			});
 	});
-
-	//end
+	// end
 };

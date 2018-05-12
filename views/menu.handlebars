@@ -8,7 +8,19 @@
 		<div class="g-menu" data-theme="dark"></div>
 
 
-<<<<<<< HEAD
+
+		<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
+
+		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
+
+		{{!-- logout btn --}}
+		<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
+
+
+	</div>
+	<div class="col"></div>
+</div>
+
 {{!-- JS --}}
 <script>
 //check for login then redirect if not
@@ -17,7 +29,6 @@
 		location.href = "/";
 	}
 // end login check
-
 //user data pull info
 	$.ajax({
 		url: "/api/user/info",
@@ -28,7 +39,6 @@
 		console.log("databse user", data);
 	})
 //end user data pull
-
 //logout
 	function signOut() {
 		Cookies.remove('id_token');
@@ -36,17 +46,4 @@
 	}
 // end logout
 </script>
-=======
 
-		<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
-
-		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
-
-		<a class="btn btn-signIn" href="/" role="button">Return To Login Screen</a>
-
-
-	</div>
-	<div class="col"></div>
-</div>
-
->>>>>>> 8bdb64da527e25fc660e20186cc573cf8898af73
