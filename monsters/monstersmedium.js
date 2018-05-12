@@ -7,12 +7,11 @@ var monstersMedium = [
 		"name": "Necromancer",
 		"photo": "",
 		"scores": [
-			"Necromancer", //name
-			4, //strength
-			3, //agility
-			5, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 5,
+			agi = 3,
+			int = 5,
+			exp = 6
 		
 		]
 	},
@@ -20,12 +19,11 @@ var monstersMedium = [
 		"name": "Gorgon",
 		"photo": "/gorgon.png",
 		"scores": [
-			"Gorgon", //name
-			5, //strength
-			3, //agility
-			4, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 6,
+			agi = 3,
+			int = 4,
+			exp = 6
 
 		]
 	},
@@ -33,12 +31,11 @@ var monstersMedium = [
 		"name": "Gunslinger",
 		"photo": "/gunslinger.png",
 		"scores": [
-			"Gunslinger", //name
-			3, //strength
-			5, //agility
-			3, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 5,
+			agi = 6,
+			int = 3,
+			exp = 6
 
 		]
 	},
@@ -46,12 +43,11 @@ var monstersMedium = [
 		"name": "Bear",
 		"photo": "",
 		"scores": [
-			"Bear", //name
-			5, //strength
-			4, //agility
-			2, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 7,
+			agi = 4,
+			int = 2,
+			exp = 6
 
 		]
 	},
@@ -59,12 +55,11 @@ var monstersMedium = [
 		"name": "Mummy",
 		"photo": "/mummy.png",
 		"scores": [
-			"Mummy", //name
-			5, //strength
-			3, //agility
-			3, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 5,
+			agi = 3,
+			int = 3,
+			exp = 6
 
 		]
 	},
@@ -72,12 +67,11 @@ var monstersMedium = [
 		"name": "Guard",
 		"photo": "",
 		"scores": [
-			"Guard", //name
-			5, //strength
-			5, //agility
-			3, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 6,
+			agi = 5,
+			int = 3,
+			exp = 6
 
 		]
 	},
@@ -85,12 +79,11 @@ var monstersMedium = [
 		"name": "Dune-Stalker",
 		"photo": "",
 		"scores": [
-			"Dune-Stalker", //name
-			4, //strength
-			5, //agility
-			5, //intelligence
-			10, //hitpoints
-			10 //experience points
+			hp = 10,
+			str = 4,
+			agi = 7,
+			int = 7,
+			exp = 6
 
 		]
 	},

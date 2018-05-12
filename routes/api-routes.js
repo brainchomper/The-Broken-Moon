@@ -23,7 +23,7 @@ module.exports = function (app) {
 			res.render()
 		});
 	});
-
+  
 	// user creation
 
 	app.post("/api/user", function (req, res) {
@@ -52,6 +52,5 @@ module.exports = function (app) {
 				res.json(dbuser)
 			});
 	});
-
 	// end
 };
