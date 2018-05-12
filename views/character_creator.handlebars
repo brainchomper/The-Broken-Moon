@@ -17,7 +17,7 @@
 			<option value="Rogue">Rogue</option>
 		</select>
 
-		<div>
+		<div id ="charDisplay">
 			<img id="displayChar" src="">
 		</div>
 
@@ -26,8 +26,7 @@
 		<input type="text">
 		<br> {{!-- get a character last name --}} Character Last Name:
 		<input type="text" id="charName2">
-		<button id="submitCharacter">Submit Your Character</button>
-
+		<a class="btn btn-characterSelect" href="/character_selector" role="button">Submit Character</a>
 
 
 	</form>
@@ -37,7 +36,7 @@
 
 
 <script>
-	if ($("#class").val() === "Wizard") {
+if ($("#class").val() === "Wizard") {
 		$('#displayChar').attr("src", "/assets/characterimages/wizard.png");
 	}
 	else if ($("#class").val() === "Warrior") {
@@ -46,4 +45,5 @@
 	else {
 		$('#displayChar').attr("src", "/assets/characterimages/rogue.png");
 	}
+
 </script>
