@@ -1,23 +1,18 @@
+<div class="row" id="fightGame">
+	<div class="col"></div>
+	<div class="col fightpage-col"></div>
+			<img src="./images/bk-moon1.jpg" class="img-fluid" alt="Broken Moon">
+</div>
+
 <a href="/menu">
-	<button type="button" class="btn btn-secondary btn-rounded" id="menuBtn">Back to the menu!</button>
+	<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
 </a>
 
-<div id="charFight">
-	<img id="displayChar" src="">
+<div class= "charFight">
+	<img class="displayFightChar" src="/assets/characterimages/wizard.png">
 </div>
 
-<div id="monFight">
-	<img id="displayMon" src="">
+<div class= "monFight">
+	<img class="displayFightMon" src="/assets/bossimages/pride.png">
 </div>
 
-<script>
-if (newChar.character_class === "Wizard") {
-		$('#displayChar').attr("src", "/assets/characterimages/wizard.png");
-	}
-	else if (newChar.character_class === "Warrior") {
-		$('#displayChar').attr("src", "/assets/characterimages/warrior.png");
-	}
-	else {
-		$('#displayChar').attr("src", "/assets/characterimages/rogue.png");
-	}
-</script>

@@ -34,5 +34,39 @@ input[type=text] {
 	background-color: #505050;
 }
 
+.fightGame {
+	height: 100%;
+	width: 100%;
+	background-image: url("/public/images/bk-moon1.jpg");
+}
+
+.monFight {
+	position: absolute;
+	top: 35%;
+	width: 70%;
+	left: 16%;
+}
+
+.displayFightMon {
+	height: 25%;
+	width: 32%;
+	position: relative;
+	bottom: 220%;
+	left: 60%;
+}
+
+.charFight {
+	position: absolute;
+	top: 46%;
+	width: 70%;
+}
+
+.displayFightChar {
+	height: 10%;
+	width: 10%;
+	bottom: 240%;
+	position: relative;
+}
+
 
 
