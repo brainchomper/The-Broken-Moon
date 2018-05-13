@@ -1,0 +1,21 @@
+.card {
+	width: 30%;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	margin: 8px;
+}
+.cardbody {
+	align-content: center;
+}
+
+.container.cards {
+	flex-wrap: wrap;
+	justify-content: center;
+	flex-direction: row;
+	display: flex;
+}
+
+.cardImg {
+	width: 85%
+}
