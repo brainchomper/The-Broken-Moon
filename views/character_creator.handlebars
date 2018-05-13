@@ -10,7 +10,7 @@
 	<form>
 		{{!-- character class options for new character --}} Character Class:
 
-		<select class="btn" id="class">
+		<select name="class:" onchange="document.getElementById('displayChar').src = charPixelImg[this.value];"class="btn" id="class">
 
 			<option value="Wizard">Wizard</option>
 			<option value="Warrior">Warrior</option>
@@ -36,14 +36,11 @@
 
 
 <script>
-if ($("#class").val() === "Wizard") {
-		$('#displayChar').attr("src", "/assets/characterimages/wizard.png");
-	}
-	else if ($("#class").val() === "Warrior") {
-		$('#displayChar').attr("src", "/assets/characterimages/warrior.png");
-	}
-	else {
-		$('#displayChar').attr("src", "/assets/characterimages/rogue.png");
-	}
+
+	var charPixelImg = {
+    "Wizard" : "/assets/characterimages/wizard.png",
+    "Warrior" : "/assets/characterimages/warrior.png",
+		"Rogue" : "/assets/characterimages/rogue.png"
+};
 
 </script>
