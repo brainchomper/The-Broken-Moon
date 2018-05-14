@@ -7,12 +7,11 @@ var monstersHigh = [
 		"name": "Dragon",
 		"photo": "",
 		"scores": [
-			"Dragon", //name
-			10, //strength
-			7, //agility
-			10, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 30,
+			str = 14,
+			agi = 12,
+			int = 15,
+			exp = 15
 		
 		]
 	},
@@ -20,12 +19,11 @@ var monstersHigh = [
 		"name": "Demon",
 		"photo": "/demon.png",
 		"scores": [
-			"Demon", //name
-			10, //strength
-			10, //agility
-			5, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 27,
+			str = 12,
+			agi = 11,
+			int = 12,
+			exp = 15
 
 		]
 	},
@@ -33,12 +31,12 @@ var monstersHigh = [
 		"name": "Vampire",
 		"photo": "/vampire.png",
 		"scores": [
-			"Necromancer", //name
-			8, //strength
-			10, //agility
-			8, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 35,
+			str = 11,
+			agi = 11,
+			int = 12,
+			exp = 15
+
 
 		]
 	},
@@ -46,12 +44,11 @@ var monstersHigh = [
 		"name": "Eye",
 		"photo": "/eye.png",
 		"scores": [
-			"Eye", //name
-			7, //strength
-			8, //agility
-			10, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 25,
+			str = 14,
+			agi = 12,
+			int = 15,
+			exp = 15
 
 		]
 	},
@@ -59,12 +56,11 @@ var monstersHigh = [
 		"name": "Ghost",
 		"photo": "/ghost.png",
 		"scores": [
-			"Ghost", //name
-			7, //strength
-			8, //agility
-			8, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 25,
+			str = 13,
+			agi = 10,
+			int = 17,
+			exp = 15
 
 		]
 	},
@@ -72,12 +68,11 @@ var monstersHigh = [
 		"name": "Hell-Hound",
 		"photo": "",
 		"scores": [
-			"Hell-Hound", //name
-			10, //strength
-			10, //agility
-			5, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 25,
+			str = 18,
+			agi = 13,
+			int = 14,
+			exp = 15
 
 		]
 	},
@@ -85,12 +80,11 @@ var monstersHigh = [
 		"name": "Mind-Flayer",
 		"photo": "",
 		"scores": [
-			"Necromancer", //name
-			10, //strength
-			10, //agility
-			10, //intelligence
-			15, //hitpoints
-			15 //experience points
+			hp = 35,
+			str = 15,
+			agi = 15,
+			int = 15,
+			exp = 15
 
 		]
 	},

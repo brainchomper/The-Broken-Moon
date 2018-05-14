@@ -1,0 +1,20 @@
+<div class="row" id="fightGame">
+	<div class="col"></div>
+	<div class="col fightpage-col"></div>
+			<img src="./images/bk-moon1.jpg" class="img-fluid" alt="Broken Moon">
+</div>
+
+<a href="/menu">
+	<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
+</a>
+{{#each id}}
+<div class= "charFight">
+	<img class="displayFightChar" src="{{this.character_img}}">
+<p>{{this.character_name1}} {{this.character_name2}} is ready to fight!</p>
+</div>
+{{/each}}
+<div class= "monFight">
+	<img class="displayFightMon" src="/assets/bossimages/pride.png">
+</div>
+
+<script src = "javascript/fightscreenApp.js"></script>
