@@ -61,8 +61,10 @@ module.exports = function (app) {
 					id: req.query.searchID
 				}
 			}).then(function(dbCharacter){
-			console.log(dbCharacter);
-				res.render("fight_screen", dbCharacter);
+				hbsObj = {
+					id: dbCharacter
+				}
+				res.render("fight_screen_with_data", hbsObj);
 			})
 		})
 	// end
