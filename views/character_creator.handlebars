@@ -2,42 +2,35 @@
 {{!-- header --}}
 <h1>Character Creator</h1>
 
-<a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a>
-
+<button onclick="window.location.href='/menu'" class="btn btn-characterCreate" id = "menuBtn">Back to the menu!</button>
+{{!-- <a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a> --}}
+<hr>
 {{!-- action form to capture user input --}}
 <form>
 	{{!-- character class options for new character --}}
-	Character Class:
-
+	<h3>Character Class:</h3>
 	<select class="btn" id="class">
 
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
 		<option value="Rogue">Rogue</option>		
 	</select>
-
+	<p></p>
 	<div>
-		<img id="displayChar" src= "">
+		<img id="displayChar" class="img-fluid" src= "">
 	</div>
-
-	<br>
+<hr>
 	{{!-- get a character name --}}
-	Character First Name:
-
+	<h3>Character First Name:</h3>
 	<input type="text">
-	<br>
+<p></p>
 	{{!-- get a character last name --}}
-	Character Last Name:
+	<h3>Character Last Name:</h3>
 	<input type="text" id = "charName2">
-<button id = "submitCharacter" type = "button">Submit Your Character</button>
-
-	<br>
-<button id = "submitCharacter" class="btn">Submit Your Character</button>
-
-
+	<p></p>
+<button class="btn btn-success" id = "submitCharacter" type = "button">Submit Your Character</button>
+<p></p>
 </form>
 </div>
 
 {{!-- look up "select on change javascript" --}}
-
-
