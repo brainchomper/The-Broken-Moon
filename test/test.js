@@ -1,14 +1,10 @@
-var chai = require('chai');
-var chaiHttp = require('chai-http');
-var htmlRoutes = ('/routes/html-routes');
-var should = require('chai').should;
+var assert = require('assert');
+var expect = require('chai').expect;
+var should = require('chai').should();
+var battle = require("../public/javascript/battle");
 
-it('should list ALL characters on /character_selector', function (done) {
-	chai.chaistatic.request(htmlRoutes)
-		.get('/character_selector')
-		.end(function (err, res) {
-			res.should.have.status(200);
-			done();
-		});
-});
-
+describe("Character", function(){
+	it('be a function', function(){
+		expect(battleStart()).to.be.null
+	})
+})

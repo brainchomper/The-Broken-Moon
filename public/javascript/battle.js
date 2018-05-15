@@ -113,4 +113,4 @@ function battleStart() {
 
 }
 
-battleStart()
+module.exports = battleStart();
