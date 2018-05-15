@@ -12,37 +12,46 @@ module.exports = function (app) {
 		res.render('menu');
 	});
 
-	app.get('/character_creator', function(req, res){
+	app.get('/character_creator', function (req, res) {
 		res.render('character_creator');
 	});
 
 	app.get('/character_selector', function (req, res) {
-		console.log
+		var cookie = req.cookies.id_token;
+		console.log("character ID, ", cookie);
 		db.Character.findAll({
-			where: 
-			{
-				user_owner : 1
+			where: {
+				user_owner: cookie
 			}
-		}).then(function(dbResults){
-			var hbsObj = 
-			{
+		}).then(function (dbResults) {
+			var hbsObj = {
 				characters: dbResults
 			}
 			res.render('character_selector', hbsObj);
 		});
-	
+
 	});
 
 	app.get('/fight_screen', function (req, res) {
-
-		
-			res.render("fight_screen");
+		var cookie = req.cookies.characterID;
+		console.log("selecting the characterID,  " + cookie);
+		db.Character.findAll({
+				where: {
+					id: cookie
+				}
+			})
+			.then(function (dbCharacter) {
+				var hbsObj = {
+					character: dbCharacter
+				}
+				res.render("fight_screen", hbsObj)
+			})
 
 	});
 
+
 	app.get('/game_over', function (req, res) {
 		res.render('game_over');
+	})
 
-
-	})};
-
+};

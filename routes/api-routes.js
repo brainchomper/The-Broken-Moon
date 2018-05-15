@@ -1,4 +1,7 @@
 var db = require("../models");
+var monstersLow = require("../monsters/monsterslow.js");
+var monstersMed = require("../monsters/monstersmedium.js");
+var monstersHigh = require("../monsters/monstershigh.js");
 
 
 console.log('----- db.User.', db.User);
@@ -53,19 +56,33 @@ module.exports = function (app) {
 		});
 	});
 
-		app.get("/api/fight_screen", function (req, res){
-			console.log("req.body", req.query.searchID);
+	app.get("/api/findEasy", function (req, res) {
+		var monster = pickRandom(monstersLow);
+		console.log("monster", monster);
+		res.send(monster);
+	});
 
-			db.Character.findOne({
-				where:{
-					id: req.query.searchID
-				}
-			}).then(function(dbCharacter){
-				hbsObj = {
-					id: dbCharacter
-				}
-				res.render("fight_screen_with_data", hbsObj);
-			})
-		})
+	app.get("/api/findMedium", function (req, res) {
+		var monster = pickRandom(monstersMed);
+		console.log("monster", monster);
+		res.send(monster);
+	});
+
+	app.get("/api/findHard", function (req, res) {
+		var monster = pickRandom(monstersHigh);
+		console.log("monster", monster);
+		res.send(monster);
+	});
+
+	app.get("/api/findBoss", function (req, res) {
+		var monster = pickRandom(monstersHigh);
+		console.log("monster", monster);
+		res.send(monster);
+	});
+
+	function pickRandom(object) {
+		var slotPick = object[(Math.floor(Math.random() * object.length))];
+		return slotPick;
+	}
 	// end
 };
