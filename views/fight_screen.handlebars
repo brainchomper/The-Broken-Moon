@@ -7,6 +7,27 @@
 <a href="/menu">
 	<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
 </a>
+
+<div class="container fight-screen">
+	<div class="row fightRow"></div>
+	{{!-- info for the character --}}
+<div class="col md 6">
+	{{#each character}}
+<div class= "charFight">
+	<img class="displayFightChar" src="{{this.character_img}}">
+<p>{{this.character_name1}} {{this.character_name2}} is ready to fight!</p>
+</div>
+{{/each}}
+</div>
+{{!-- info for the monster and the buttons --}}
+<div class="col md 6" id = "monsterDiv">
+<button id = "easyMonster" class = "monsterSearchBtn" value = "Easy">Fight an Easy Monster</button>
+<button id = "medMonster" class = "monsterSearchBtn" value = "Medium">Fight a Medium Monster</button>
+<button id = "hardMonster" class = "monsterSearchBtn" value = "Hard">Fight a Hard Monster</button>
+
+</div>
+
+</div>
 {{#each character}}
 <div class= "charFight">
 	<img class="displayFightChar" src="{{this.character_img}}">

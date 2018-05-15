@@ -1,26 +1,33 @@
 $(document).ready(function(){
 // load the value of the character
+// var medBtn = $("#medMonster").val();
+// var easyBtn = $("#easyMonster").val();
+// var hardBtn = $("#hardMonster").val();
+$(".monsterSearchBtn").on("click", function(event){
+	event.preventDefault();
+	console.log("this, " , this);
+	APIcall(this);;
+})
 
-function pageLoad(){
-	console.log(getCookie("characterID"));
-
-	var charCookie = getCookie("characterID");
-
-	var charID = {
-	searchID: charCookie
-	}
-console.log("charID = " + charID);
-	$.ajax({
-		method: "GET",
-		url: "/api/fight_screen",
-		data: charID,
-		type: JSON
-	})
-	console.log("I think this sent the API query")
-};
-pageLoad();
 	// end of the page function
 });
+
+function APIcall(obj){
+	// get the value
+	var addOn = obj.value;
+	// concatenate the value of the button into a query url
+	var queryURL = "/api/find" + addOn;
+// run the query and then run the visualize function on the results
+$.ajax({
+	url: queryURL,
+	method: "GET",
+
+})
+.then(function(results){
+	visualize(results)
+})
+	
+}
 
 // function to help us read the cookies
 function getCookie(c_name) {
@@ -36,5 +43,17 @@ function getCookie(c_name) {
 			}
 	}
 	return "";
+}
+
+function visualize(obj) {
+	var header = $("<h4>").addClass("card-title")
+
+	// make a new card but with custom class
+	$("<div>")
+	.addClass("card monsterCard")
+	// fill the insides
+	.html(
+		
+	)
 }
 
