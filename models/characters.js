@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
 	var Character = sequelize.define("Character", {
-		user_owner: DataTypes.INTEGER,
+		user_owner: DataTypes.TEXT,
 		character_class: {
 			type: DataTypes.STRING,
 			allowNull: false
