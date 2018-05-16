@@ -13,17 +13,6 @@ module.exports = function(app) {
 
 	app.get("/api/characters", function(req, res){
 		db.Character.findAll({
-<<<<<<< HEAD
-			// where: {
-			// 	user_owner: req.body.id
-			// }
-		})
-		.then(function(dbCharacter){
-			// res.render(dbCharacter);
-			console.log(dbCharacter);
-		});
-	});	
-=======
 				where: {
 					user_owner: 1
 				}
@@ -35,14 +24,10 @@ module.exports = function(app) {
 	});
 
 	// user creation
->>>>>>> da66718751d2594f9382221d63da0c07e3ed888f
 
 	app.put("/api/updatecharacter", function(req,res){
 		db.Character.findOne({
 			where: {
-<<<<<<< HEAD
-				user_owner: req.body.id
-=======
 				user_id: req.body.user_id
 			},
 			defaults: {
@@ -50,15 +35,8 @@ module.exports = function(app) {
 				user_name: req.body.user_name,
 				user_email: req.body.user_email,
 				user_photo: req.body.user_photo
->>>>>>> da66718751d2594f9382221d63da0c07e3ed888f
 			}
 		})
-<<<<<<< HEAD
-		.then(function(updateCharacter){
-			res.send(updateCharacter);
-		})
-	})
-=======
 	});
 	
 	app.get("/api/user/info", function (req, res) {
@@ -110,6 +88,5 @@ module.exports = function(app) {
 		var slotPick = object[(Math.floor(Math.random() * object.length))];
 		return slotPick;
 	}
->>>>>>> da66718751d2594f9382221d63da0c07e3ed888f
 	// end
 };
