@@ -90,6 +90,10 @@ input[type=text] {
 	position: relative;
 }
 
+.characterText {
+	color: black;
+	margin-bottom: 0px;
+}
 /* #challengeBtns {
 	margin-bottom: 700px;
 } */
