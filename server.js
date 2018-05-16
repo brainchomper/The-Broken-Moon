@@ -3,7 +3,10 @@ var bodyParser = require("body-parser");
 var sequelize = require("sequelize");
 var path = require("path");
 var app = express();
+const mysql = require('mysql2');
+
 var PORT = process.env.PORT || 8080;
+var cookieParser = require("cookie-parser");
 
 var db = require("./models");
 app.use(express.static(path.join(__dirname, 'public')));
@@ -11,6 +14,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
+
+app.use(cookieParser());
+
 
 var exphbs = require("express-handlebars");
 
