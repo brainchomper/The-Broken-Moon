@@ -2,25 +2,25 @@
 {{!-- header --}}
 <h1>Character Creator</h1>
 
-<a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a>
-
+<a href="/menu"><button type="button" class="btn btn-characterCreate" id = "menuBtn">Back to the menu!</button></a>
+<hr>
 {{!-- action form to capture user input --}}
 <form>
 	{{!-- character class options for new character --}}
 	Character Class:
 
-	<select id="characterClass">
+	<select name ="Class" id="characterClass" onchange = "document.getElementById('displayChar').src = charPixelImg(this.value);">
 
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
 		<option value="Rogue">Rogue</option>		
 	</select>
-
+<p></p>
 	<div>
-		<img id="displayChar" src= "">
+		<img id="displayChar" class = "img-fluid" src= "">
 	</div>
 
-	<br>
+	<hr>
 	{{!-- get a character name --}}
 	Character First Name:
 
@@ -34,5 +34,13 @@
 
 </form>
 </div>
+<script>
+    
+    var charPixelImg = {
+   "Wizard" : "/assets/characterimages/wizard.png",
+   "Warrior" : "/assets/characterimages/warrior.png",
+        "Rogue" : "/assets/characterimages/rogue.png"
+};
 
+</script>
 
