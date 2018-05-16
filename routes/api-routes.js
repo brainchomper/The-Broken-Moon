@@ -16,6 +16,9 @@ module.exports = function (app) {
 	})
 
 	app.get("/api/characters", function (req, res) {
+// cookie function
+
+
 		db.Character.findAll({
 				where: {
 					user_owner: 1
