@@ -10,17 +10,18 @@ module.exports = function(app) {
 
 	app.get("/api/characters", function(req, res){
 		db.Character.findAll({
-			where: {
-				user_owner: req.body.id
-			}
+			// where: {
+			// 	user_owner: req.body.id
+			// }
 		})
 		.then(function(dbCharacter){
-			res.render(dbCharacter);
+			// res.render(dbCharacter);
+			console.log(dbCharacter);
 		});
 	});	
 
-	app.put("/api/characters", function(req,res){
-		db.Character.findAll({
+	app.put("/api/updatecharacter", function(req,res){
+		db.Character.findOne({
 			where: {
 				user_owner: req.body.id
 			}
