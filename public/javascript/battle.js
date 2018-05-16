@@ -1,13 +1,13 @@
-function Character(charClass, name, level, hp, str, agi, int, exp, loot) {
-	this.charClass = charClass
-	this.name = name;
-	this.level = level;
-	this.hp = hp;
-	this.str = str;
-	this.agi = agi;
-	this.int = int;
-	this.exp = exp;
-	this.loot = loot;
+function Character(obj) {
+	this.charClass = obj.character_class
+	this.name = obj.character_name1;
+	this.level = obj.level;
+	this.hp = obj.hp;
+	this.str = obj.str;
+	this.agi = obj.agi;
+	this.int = obj.int;
+	this.exp = obj.exp;
+	this.loot = obj.loot;
 
 	// method which prints all of the stats for a character
 	this.printStats = function () {
@@ -51,12 +51,12 @@ function Character(charClass, name, level, hp, str, agi, int, exp, loot) {
 	};
 }
 
-function Monster(name, str, agi, int, hp) {
-	this.name = name;
-	this.str = str;
-	this.agi = agi;
-	this.int = int;
-	this.hp = hp;
+function Monster(obj, array) {
+	this.hp = array[0];
+	this.str = array[1];
+	this.agi = array[2];
+	this.int = array[3];
+	this.name = obj.name;
 
 	// method which prints all of the stats for a character
 	this.printStats = function () {
@@ -99,9 +99,6 @@ function battleStart() {
 			character.attack(monster);
 			monster.attack(character);
 		}
-		// prints stats to show changes
-		monster.printStats();
-		character.printStats();
 	}
 
 	if (monster.isAlive() === false && character.isAlive() === true) {

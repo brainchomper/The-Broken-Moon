@@ -1,5 +1,7 @@
 	// placeholder for the values we will get from the monster later
-	var monsterScoreArr;
+	var monsterScoreArr = [];
+	var monsterName;
+	var userArr =[];
 
 	//placeholder variable for the challenge rating of the fight
 	var challengeRating;
@@ -19,9 +21,9 @@
 		$('body').on("click", ".monsterSearchBtn", function (event) {
 			console.log("Click click click click click for the api")
 			event.preventDefault();
-			APIcall(this);;
+			APIcall(this);
 			challengeRating = this.value;
-			console.log("challengeRating", challengeRating);
+			console.log("challengeRating is now set to: ", challengeRating);
 		})
 
 		$('body').on("click", ".startOverBtn", function (event) {
@@ -38,8 +40,21 @@
 					eBtn, mBtn, hBtn
 				)
 		});
-		$('body').on("click", ".fightStartBtn", function(){
+		$('body').on("click", ".fightStartBtn", function(event){
+			event.preventDefault();
 			// hey so we need to put the fight code in here yo
+			$.ajax({
+				url: "/api/fightCharacter",
+				method: "GET"
+			}).then(function(results){
+				console.log("results of the character query: ", results)
+				var uA = results[0];
+				// do the fight thing passing in the user results and the monster info
+				gladiator(uA, monsterName, monsterScoreArr)
+				
+			})
+
+
 		});
 
 		// end of the page function
@@ -85,6 +100,7 @@
 		var header = $("<h4>").addClass("card-title").text(obj.name);
 		// update the scoreArr that we will use later for the fight functions
 		monsterScoreArr = obj.scores;
+		monsterName = obj.name;
 		// make a new card but with custom class
 		var updateDiv =
 			$("<div>")
@@ -103,7 +119,6 @@
 		var newChallenge = $("<button>")
 			.addClass("startOverBtn")
 			.text("Change Difficulty Rating");
-		console.log("farther down", challengeRating)
 		var newMonster = $("<button>")
 			.addClass("monsterSearchBtn")
 			.attr("value", challengeRating)
@@ -114,4 +129,9 @@
 			.empty()
 			.append(fightBtn, newChallenge, newMonster)
 
+	};
+
+	function gladiator ( charData, monstName, monstArr){
+		var user = new BuildUser(charData)
+		var monster = new BuildMonster(monstName,monsterArr)
 	}
