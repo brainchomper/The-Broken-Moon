@@ -1,5 +1,7 @@
 	// placeholder for the values we will get from the monster later
-	var monsterScoreArr;
+	var monsterScoreArr = [];
+	var monsterName;
+	var userArr = [];
 
 	//placeholder variable for the challenge rating of the fight
 	var challengeRating;
@@ -19,9 +21,9 @@
 		$('body').on("click", ".monsterSearchBtn", function (event) {
 			console.log("Click click click click click for the api")
 			event.preventDefault();
-			APIcall(this);;
+			APIcall(this);
 			challengeRating = this.value;
-			console.log("challengeRating", challengeRating);
+			console.log("challengeRating is now set to: ", challengeRating);
 		})
 
 		$('body').on("click", ".startOverBtn", function (event) {
@@ -38,8 +40,24 @@
 					eBtn, mBtn, hBtn
 				)
 		});
-		$('body').on("click", ".fightStartBtn", function(){
+		$('body').on("click", ".fightStartBtn", function (event) {
+			event.preventDefault();
 			// hey so we need to put the fight code in here yo
+			$.ajax({
+				url: "/api/fightCharacter",
+				method: "GET"
+			}).then(function (results) {
+				console.log("results of the character query: ", results)
+				var uA = results[0];
+				// do the fight thing passing in the user results and the monster info
+
+				var fightChar = new Character(uA);
+				var fightMon = new Monster(monsterName, monsterScoreArr);
+
+				battle(fightChar, fightMon);
+
+			})
+
 		});
 
 		// end of the page function
@@ -85,6 +103,7 @@
 		var header = $("<h4>").addClass("card-title").text(obj.name);
 		// update the scoreArr that we will use later for the fight functions
 		monsterScoreArr = obj.scores;
+		monsterName = obj.name;
 		// make a new card but with custom class
 		var updateDiv =
 			$("<div>")
@@ -103,7 +122,6 @@
 		var newChallenge = $("<button>")
 			.addClass("startOverBtn")
 			.text("Change Difficulty Rating");
-		console.log("farther down", challengeRating)
 		var newMonster = $("<button>")
 			.addClass("monsterSearchBtn")
 			.attr("value", challengeRating)
@@ -114,4 +132,75 @@
 			.empty()
 			.append(fightBtn, newChallenge, newMonster)
 
+	};
+
+	function Character(obj) {
+		this.charClass = obj.character_class
+		this.name = obj.character_name1;
+		this.level = obj.level;
+		this.hp = obj.hp;
+		this.str = obj.str;
+		this.agi = obj.agi;
+		this.int = obj.int;
+		this.exp = obj.exp;
+		this.loot = obj.loot;
+
+		// method which determines whether or not a character's "hitpoints" are less than zero
+		// and returns true or false depending upon the outcome
+		this.isAlive = function () {
+			if (this.hp > 0) {
+				return true;
+			}
+			return false;
+		};
+
+		// method which takes in a second object and decreases their "hitpoints" by this character's strength
+		this.attack = function (character2) {
+			character2.hp -= this.str;
+		};
+
+		// method which increases this character's stats when called
+		this.levelUp = function () {
+			this.str += 5;
+			this.agi += 5;
+			this.int += 5;
+			this.hp += 5;
+			this.loot += 50;
+		};
 	}
+
+	function Monster(obj, array) {
+		this.hp = array[0];
+		this.str = array[1];
+		this.agi = array[2];
+		this.int = array[3];
+		this.name = obj;
+
+		// method which determines whether or not a character's "hitpoints" are less than zero
+		// and returns true or false depending upon the outcome
+		this.isAlive = function () {
+			if (this.hp > 0) {
+				return true;
+			}
+			return false;
+		};
+
+		// method which takes in a second object and decreases their "hitpoints" by this character's strength
+		this.attack = function (character2) {
+			character2.hp -= this.str;
+		};
+	}
+
+	function battle(obj1, obj2) {
+
+		obj1.attack(obj2);
+		obj2.attack(obj1);
+
+		if (obj1.isAlive() && obj2.isAlive()) {
+			battle(obj1, obj2)
+		} else if (obj1.isAlive()) {
+			win(obj1)
+		} else {
+			lose();
+		}
+	};

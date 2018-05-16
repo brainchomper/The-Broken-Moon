@@ -32,9 +32,10 @@ module.exports = function (app) {
 	app.post("/api/user", function (req, res) {
 		db.User.findOrCreate({
 			where: {
-				id_token: req.body.id_token
+				user_id: req.body.user_id
 			},
 			defaults: {
+				id_token: req.body.id_token,
 				user_name: req.body.user_name,
 				user_email: req.body.user_email,
 				user_photo: req.body.user_photo
@@ -44,8 +45,7 @@ module.exports = function (app) {
 			res.json(dbuser)
 		})
 	});
-
-
+	
 	app.get("/api/user/info", function (req, res) {
 		db.User.find({
 			where: {
@@ -78,6 +78,17 @@ module.exports = function (app) {
 		var monster = pickRandom(monstersHigh);
 		console.log("monster", monster);
 		res.send(monster);
+	});
+
+	app.get("/api/fightCharacter", function(req, res){
+		var cookie = req.cookies.characterID;
+		db.Character.findAll({
+			where: {
+				id: cookie
+			}
+		}).then(function(dbCharacter){
+			res.send(dbCharacter);
+		})
 	});
 
 	function pickRandom(object) {
