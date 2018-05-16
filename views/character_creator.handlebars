@@ -1,43 +1,43 @@
-<div class= "mainpage-col">
-{{!-- header --}}
-<h1>Character Creator</h1>
+<div class="mainpage-col">
+	{{!-- header --}}
+	<h1>Character Creator</h1>
 
-<a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a>
+	<a href="/menu">
+		<button type="button" class="btn btn-characterCreate" id="menuBtn">Back to the menu!</button>
+	</a>
+	<hr> {{!-- action form to capture user input --}}
+	<form>
+		{{!-- character class options for new character --}} Character Class:
 
-{{!-- action form to capture user input --}}
-<form>
-	{{!-- character class options for new character --}}
-	Character Class:
-
-	<select class="btn" id="class">
-
-		<option value="Wizard">Wizard</option>
-		<option value="Warrior">Warrior</option>
-		<option value="Rogue">Rogue</option>		
-	</select>
-
-	<div>
-		<img id="displayChar" src= "">
-	</div>
-
-	<br>
-	{{!-- get a character name --}}
-	Character First Name:
-
-	<input type="text">
-	<br>
-	{{!-- get a character last name --}}
-	Character Last Name:
-	<input type="text" id = "charName2">
-<button id = "submitCharacter" type = "button">Submit Your Character</button>
-
-	<br>
-<button id = "submitCharacter" class="btn">Submit Your Character</button>
+		<select name="Class" id="characterClass" onchange="document.getElementById('displayChar').src = charPixelImg[this.value];">
 
 
-</form>
+			<option value="Wizard">Wizard</option>
+			<option value="Warrior">Warrior</option>
+			<option value="Rogue">Rogue</option>
+		</select>
+		<p></p>
+		<div>
+			<img id="displayChar" class="img-fluid" src="images/characterimages/wizard.png">
+		</div>
+
+		<hr> {{!-- get a character name --}} Character First Name:
+
+		<input type="text" id="charName1">
+		<br> {{!-- get a character last name --}} Character Last Name:
+		<input type="text" id="charName2">
+		<br>
+		<button id="submitCharacter" type="button" class="btn">Submit Your Character</button>
+
+
+	</form>
 </div>
+<script>
 
-{{!-- look up "select on change javascript" --}}
+	var charPixelImg = {
+		"Wizard": "images/characterimages/wizard.png",
+		"Warrior": "images/characterimages/warrior.png",
+		"Rogue": "images/characterimages/rogue.png"
+	};
 
-
+</script>
