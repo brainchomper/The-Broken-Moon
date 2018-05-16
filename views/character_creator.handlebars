@@ -1,43 +1,42 @@
-<div class= "mainpage-col">
-{{!-- header --}}
-<h1>Character Creator</h1>
+<div class="mainpage-col">
+	{{!-- header --}}
+	<h1>Character Creator</h1>
+	<a href="/menu">
+		<button type="button" class="btn btn-secondary btn-rounded" id="menuBtn">Back to the menu!</button>
+	</a>
+		 {{!-- action form to capture user input --}}
+	<form>
+		{{!-- character class options for new character --}}
+		<h3>Character Class:</h3>
 
-<a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a>
+		<select class="btn" id="class">
 
-{{!-- action form to capture user input --}}
-<form>
-	{{!-- character class options for new character --}}
-	Character Class:
+			<option value="Wizard">Wizard</option>
+			<option value="Warrior">Warrior</option>
+			<option value="Rogue">Rogue</option>
+		</select>
 
-	<select class="btn" id="class">
+		<div>
+			<img id="displayChar" src="">
+		</div>
 
-		<option value="Wizard">Wizard</option>
-		<option value="Warrior">Warrior</option>
-		<option value="Rogue">Rogue</option>		
-	</select>
+		{{!-- get a character name --}}
+		<h3>Character First Name:</h3>
 
-	<div>
-		<img id="displayChar" src= "">
-	</div>
+		<input type="text">
+		<p></p>
+		{{!-- get a character last name --}}
+		<h3>Character Last Name:</h3>
+		<input type="text" id="charName2">
+		<p></p>
+		<button id="submitCharacter" type="button" class="btn btn-success">Submit Your Character</button>
 
-	<br>
-	{{!-- get a character name --}}
-	Character First Name:
-
-	<input type="text">
-	<br>
-	{{!-- get a character last name --}}
-	Character Last Name:
-	<input type="text" id = "charName2">
-<button id = "submitCharacter" type = "button">Submit Your Character</button>
-
-	<br>
-<button id = "submitCharacter" class="btn">Submit Your Character</button>
-
-
-</form>
+	</form>
 </div>
-
-{{!-- look up "select on change javascript" --}}
-
-
+<script>
+	var cookies = Cookies.get('id_token');
+	console.log(cookies)
+	if (cookies == undefined) {
+		location.href = "/";
+	}
+</script> {{!-- look up "select on change javascript" --}}
