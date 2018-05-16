@@ -1,7 +1,7 @@
 	// placeholder for the values we will get from the monster later
 	var monsterScoreArr = [];
 	var monsterName;
-	var userArr =[];
+	var userArr = [];
 
 	//placeholder variable for the challenge rating of the fight
 	var challengeRating;
@@ -40,20 +40,23 @@
 					eBtn, mBtn, hBtn
 				)
 		});
-		$('body').on("click", ".fightStartBtn", function(event){
+		$('body').on("click", ".fightStartBtn", function (event) {
 			event.preventDefault();
 			// hey so we need to put the fight code in here yo
 			$.ajax({
 				url: "/api/fightCharacter",
 				method: "GET"
-			}).then(function(results){
+			}).then(function (results) {
 				console.log("results of the character query: ", results)
 				var uA = results[0];
 				// do the fight thing passing in the user results and the monster info
-				gladiator(uA, monsterName, monsterScoreArr)
-				
-			})
 
+				var fightChar = new Character(uA);
+				var fightMon = new Monster(monsterName, monsterScoreArr);
+
+				battle(fightChar, fightMon);
+
+			})
 
 		});
 
@@ -131,7 +134,73 @@
 
 	};
 
-	function gladiator ( charData, monstName, monstArr){
-		var user = new BuildUser(charData)
-		var monster = new BuildMonster(monstName,monsterArr)
+	function Character(obj) {
+		this.charClass = obj.character_class
+		this.name = obj.character_name1;
+		this.level = obj.level;
+		this.hp = obj.hp;
+		this.str = obj.str;
+		this.agi = obj.agi;
+		this.int = obj.int;
+		this.exp = obj.exp;
+		this.loot = obj.loot;
+
+		// method which determines whether or not a character's "hitpoints" are less than zero
+		// and returns true or false depending upon the outcome
+		this.isAlive = function () {
+			if (this.hp > 0) {
+				return true;
+			}
+			return false;
+		};
+
+		// method which takes in a second object and decreases their "hitpoints" by this character's strength
+		this.attack = function (character2) {
+			character2.hp -= this.str;
+		};
+
+		// method which increases this character's stats when called
+		this.levelUp = function () {
+			this.str += 5;
+			this.agi += 5;
+			this.int += 5;
+			this.hp += 5;
+			this.loot += 50;
+		};
 	}
+
+	function Monster(obj, array) {
+		this.hp = array[0];
+		this.str = array[1];
+		this.agi = array[2];
+		this.int = array[3];
+		this.name = obj;
+
+		// method which determines whether or not a character's "hitpoints" are less than zero
+		// and returns true or false depending upon the outcome
+		this.isAlive = function () {
+			if (this.hp > 0) {
+				return true;
+			}
+			return false;
+		};
+
+		// method which takes in a second object and decreases their "hitpoints" by this character's strength
+		this.attack = function (character2) {
+			character2.hp -= this.str;
+		};
+	}
+
+	function battle(obj1, obj2) {
+
+		obj1.attack(obj2);
+		obj2.attack(obj1);
+
+		if (obj1.isAlive() && obj2.isAlive()) {
+			battle(obj1, obj2)
+		} else if (obj1.isAlive()) {
+			win(obj1)
+		} else {
+			lose();
+		}
+	};
