@@ -34,7 +34,7 @@
 			var eBtn = buttonMaker("Easy");
 			var mBtn = buttonMaker("Medium");
 			var hBtn = buttonMaker("Hard");
-			$("#monsterDiv")
+			$("#challengeBtns")
 				.empty()
 				.append(
 					eBtn, mBtn, hBtn
@@ -54,7 +54,7 @@
 				var fightChar = new Character(uA);
 				var fightMon = new Monster(monsterName, monsterScoreArr);
 
-				battle(fightChar, fightMon);
+				battle(fightChar, fightMon, results);
 
 			})
 
@@ -98,23 +98,16 @@
 	}
 
 	function visualize(obj) {
-		var cbody = $("<div>").addClass("card-body");
-		var newImg = $("<img>").attr("src", obj.photo).addClass("monsterImg");
-		var header = $("<h4>").addClass("card-title").text(obj.name);
+		
 		// update the scoreArr that we will use later for the fight functions
 		monsterScoreArr = obj.scores;
 		monsterName = obj.name;
 		// make a new card but with custom class
-		var updateDiv =
-			$("<div>")
-			.addClass("card monsterCard")
-			// fill the insides
-			.append(
-				cbody
-				.append(newImg, header)
-			)
+		var monsterImg = $("<img>")
+		.attr("src", obj.photo)
+		.addClass("displayFightMon")
 		// move the buttons out and replace w/ the monster info
-		$("#monsterDiv").html(updateDiv);
+		$("#monsterDiv").html(monsterImg);
 		// update the fightrow with a button
 		var fightBtn = $("<button>")
 			.addClass("fightStartBtn")
@@ -131,7 +124,7 @@
 		$("#fightRow")
 			.empty()
 			.append(fightBtn, newChallenge, newMonster)
-
+		$("#challengeBtns").empty()
 	};
 
 	function Character(obj) {
@@ -139,6 +132,7 @@
 		this.name = obj.character_name1;
 		this.level = obj.level;
 		this.hp = obj.hp;
+		this.maxHp = obj.hp;
 		this.str = obj.str;
 		this.agi = obj.agi;
 		this.int = obj.int;
@@ -164,7 +158,7 @@
 			this.str += 5;
 			this.agi += 5;
 			this.int += 5;
-			this.hp += 5;
+			this.maxHp += 5;
 			this.loot += 50;
 		};
 	}
@@ -191,7 +185,7 @@
 		};
 	}
 
-	function battle(obj1, obj2) {
+	function battle(obj1, obj2, obj3) {
 
 		obj1.attack(obj2);
 		obj2.attack(obj1);
@@ -203,4 +197,49 @@
 		} else {
 			lose();
 		}
+	};
+
+	function win(obj1 ){
+		// update the button text
+		// add experience points
+		var exp;
+		switch(challengeRating){
+			case "Easy" : {
+				exp = 5;
+			}
+			break;
+			case "Medium" : {
+				exp = 10;
+			}
+			break;
+			case"Hard" : {
+				exp = 15;
+			}
+			break;
+			default: 
+			console.log("Nope");
+		}
+		// calculate if they level or not
+		if (exp > 100){
+			obj1.levelUp();
+			exp -= 100
+		}
+		//do the put request either way.
+		var updateValuesObj = {
+			newHp: obj1.maxHp,
+			newStr: obj1.str,
+			newInt: obj1.int,
+			newAgi: obj1.agi,
+			newLoot: obj1.loot,
+			newExp: obj.exp
+		}
+
+		$.ajax({
+			method: "PUT",
+			url: "/api/updateCharacter",
+			data: updateValuesObj,
+			type: "json"
+		}).then(function(results){
+			$(".fightStartBtn").text("Fight This Monster Again!")
+		});
 	};
