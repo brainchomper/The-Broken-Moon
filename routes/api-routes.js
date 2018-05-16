@@ -6,6 +6,7 @@ var monstersHigh = require("../monsters/monstershigh.js");
 module.exports = function(app) {
 	app.post("/api/characters", function(req, res){
 		db.Character.create(req.body)
+<<<<<<< HEAD
 		.then(function(dbCharacter){
 			res.redirect("/menu")
 		})
@@ -27,18 +28,26 @@ module.exports = function(app) {
 
 	app.put("/api/updatecharacter", function(req,res){
 		db.Character.findOne({
+=======
+			.then(function (dbCharacter) {
+				res.redirect("/menu")
+			})
+	});
+
+	app.post("/api/user", function (req, res) {
+		db.User.findOrCreate({
+>>>>>>> alternative-master
 			where: {
-				user_id: req.body.user_id
+				id_token: req.body.id_token
 			},
 			defaults: {
-				id_token: req.body.id_token,
 				user_name: req.body.user_name,
 				user_email: req.body.user_email,
 				user_photo: req.body.user_photo
 			}
 		})
 	});
-	
+
 	app.get("/api/user/info", function (req, res) {
 		db.User.find({
 			where: {
@@ -47,46 +56,87 @@ module.exports = function(app) {
 		}).then(function (dbuser) {
 			res.json(dbuser)
 		});
-	});
 
-	app.get("/api/findEasy", function (req, res) {
-		var monster = pickRandom(monstersLow);
-		console.log("monster", monster);
-		res.send(monster);
-	});
+		app.get("/api/characters", function (req, res) {
+			db.Character.findAll({
+				where: {
+					user_owner: 1
+				}
+			})
+				.then(function (dbCharacter) {
+					console.log(dbCharacter)
+					res.render("character_selector", dbCharacter);
+				});
+		});
 
-	app.get("/api/findMedium", function (req, res) {
-		var monster = pickRandom(monstersMed);
-		console.log("monster", monster);
-		res.send(monster);
-	});
+		// user creation
 
-	app.get("/api/findHard", function (req, res) {
-		var monster = pickRandom(monstersHigh);
-		console.log("monster", monster);
-		res.send(monster);
-	});
+		app.post("/api/user", function (req, res) {
+			db.User.findOrCreate({
+				where: {
+					user_id: req.body.user_id
+				},
+				defaults: {
+					id_token: req.body.id_token,
+					user_name: req.body.user_name,
+					user_email: req.body.user_email,
+					user_photo: req.body.user_photo
+				}
 
-	app.get("/api/findBoss", function (req, res) {
-		var monster = pickRandom(monstersHigh);
-		console.log("monster", monster);
-		res.send(monster);
-	});
+			}).then(function (dbuser) {
+				res.json(dbuser)
+			})
+		});
 
-	app.get("/api/fightCharacter", function(req, res){
-		var cookie = req.cookies.characterID;
-		db.Character.findAll({
-			where: {
-				id: cookie
-			}
-		}).then(function(dbCharacter){
-			res.send(dbCharacter);
-		})
-	});
+		app.get("/api/user/info", function (req, res) {
+			db.User.find({
+				where: {
+					id_token: req.query.id_token
+				}
+			}).then(function (dbuser) {
+				res.json(dbuser)
+			});
+		});
 
-	function pickRandom(object) {
-		var slotPick = object[(Math.floor(Math.random() * object.length))];
-		return slotPick;
-	}
-	// end
+		app.get("/api/findEasy", function (req, res) {
+			var monster = pickRandom(monstersLow);
+			console.log("monster", monster);
+			res.send(monster);
+		});
+
+		app.get("/api/findMedium", function (req, res) {
+			var monster = pickRandom(monstersMed);
+			console.log("monster", monster);
+			res.send(monster);
+		});
+
+		app.get("/api/findHard", function (req, res) {
+			var monster = pickRandom(monstersHigh);
+			console.log("monster", monster);
+			res.send(monster);
+		});
+
+		app.get("/api/findBoss", function (req, res) {
+			var monster = pickRandom(monstersHigh);
+			console.log("monster", monster);
+			res.send(monster);
+		});
+
+		app.get("/api/fightCharacter", function (req, res) {
+			var cookie = req.cookies.characterID;
+			db.Character.findAll({
+				where: {
+					id: cookie
+				}
+			}).then(function (dbCharacter) {
+				res.send(dbCharacter);
+			})
+		});
+
+		function pickRandom(object) {
+			var slotPick = object[(Math.floor(Math.random() * object.length))];
+			return slotPick;
+		}
+		// end
+	})
 };
