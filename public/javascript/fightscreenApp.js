@@ -135,4 +135,8 @@
 	function gladiator ( charData, monstName, monstArr){
 		var user = new BuildUser(charData)
 		var monster = new BuildMonster(monstName,monsterArr)
+<<<<<<< HEAD
 	}
+=======
+	}
+>>>>>>> kevin
