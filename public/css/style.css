@@ -17,6 +17,7 @@ html, body { height: 100%; overflow: hidden}
 	width: 10%;
 }
 
+
 h1, p, h3 {
 	color: white;
 }
@@ -28,6 +29,7 @@ hr {
 }
 
 .btn {
+
 	background-color: #505050;
 	font-family: 'Press Start 2P', cursive;
 }
