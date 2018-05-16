@@ -15,20 +15,6 @@ module.exports = function (app) {
 			})
 	})
 
-	app.get("/api/characters", function (req, res) {
-// cookie function
-
-
-		db.Character.findAll({
-				where: {
-					user_owner: 1
-				}
-			})
-			.then(function (dbCharacter) {
-				console.log(dbCharacter)
-				res.render("character_selector", dbCharacter);
-			});
-	});
 
 	// user creation
 
