@@ -8,8 +8,9 @@
 {{!-- action form to capture user input --}}
 <form>
 	{{!-- character class options for new character --}}
-	<h3>Character Class:</h3>
-	<select class="btn" id="class">
+	Character Class:
+
+	<select id="characterClass">
 
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
@@ -21,16 +22,17 @@
 	</div>
 <hr>
 	{{!-- get a character name --}}
-	<h3>Character First Name:</h3>
-	<input type="text">
-<p></p>
+	Character First Name:
+
+	<input type="text" id = "charName1">
+	<br>
 	{{!-- get a character last name --}}
 	<h3>Character Last Name:</h3>
 	<input type="text" id = "charName2">
-	<p></p>
-<button class="btn btn-success" id = "submitCharacter" type = "button">Submit Your Character</button>
-<p></p>
+	<br>
+<button id = "submitCharacter" type = "button" class = "btn">Submit Your Character</button>
+
 </form>
 </div>
 
-{{!-- look up "select on change javascript" --}}
+
