@@ -10,7 +10,7 @@
 	{{!-- character class options for new character --}}
 	Character Class:
 
-	<select id="characterClass">
+	<select name="Class:" id="characterClass" onchange="document.getElementById('displayChar').src = charPixelImg[this.value];">
 
 		<option value="Wizard">Wizard</option>
 		<option value="Warrior">Warrior</option>
@@ -34,7 +34,8 @@
 
 </form>
 </div>
-
+<script>
+	
 	var charPixelImg = {
     "Wizard" : "/assets/characterimages/wizard.png",
     "Warrior" : "/assets/characterimages/warrior.png",
@@ -42,3 +43,4 @@
 };
 
 </script>
+

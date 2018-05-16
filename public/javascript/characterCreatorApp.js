@@ -77,7 +77,7 @@ function evaluateClass(classInput) {
 				str = 10;
 				agi = 20;
 				int = 5;
-				charImage = "need a file name"
+				charImage = "assets/characterimages/rogue.png"
 			}
 			console.log("You're making a Rogue")
 
@@ -88,7 +88,7 @@ function evaluateClass(classInput) {
 				str = 20;
 				agi = 5;
 				int = 10;
-				charImage = "need a file name"
+				charImage = "assets/characterimages/warrior.png"
 				console.log("You're making a Warrior")
 
 			}
