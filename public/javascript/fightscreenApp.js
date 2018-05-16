@@ -1,7 +1,9 @@
 	// placeholder for the values we will get from the monster later
 	var monsterScoreArr = [];
 	var monsterName;
+
 	var userArr = [];
+
 
 	//placeholder variable for the challenge rating of the fight
 	var challengeRating;
@@ -34,18 +36,23 @@
 			var eBtn = buttonMaker("Easy");
 			var mBtn = buttonMaker("Medium");
 			var hBtn = buttonMaker("Hard");
+
 			$("#challengeBtns")
+
 				.empty()
 				.append(
 					eBtn, mBtn, hBtn
 				)
 		});
+
 		$('body').on("click", ".fightStartBtn", function (event) {
+
 			event.preventDefault();
 			// hey so we need to put the fight code in here yo
 			$.ajax({
 				url: "/api/fightCharacter",
 				method: "GET"
+
 			}).then(function (results) {
 				console.log("results of the character query: ", results)
 				var uA = results[0];
@@ -98,16 +105,19 @@
 	}
 
 	function visualize(obj) {
-		
+
+
 		// update the scoreArr that we will use later for the fight functions
 		monsterScoreArr = obj.scores;
 		monsterName = obj.name;
 		// make a new card but with custom class
+
 		var monsterImg = $("<img>")
 		.attr("src", obj.photo)
 		.addClass("displayFightMon")
 		// move the buttons out and replace w/ the monster info
 		$("#monsterDiv").html(monsterImg);
+
 		// update the fightrow with a button
 		var fightBtn = $("<button>")
 			.addClass("fightStartBtn")
@@ -124,6 +134,7 @@
 		$("#fightRow")
 			.empty()
 			.append(fightBtn, newChallenge, newMonster)
+
 		$("#challengeBtns").empty()
 	};
 
@@ -243,3 +254,4 @@
 			$(".fightStartBtn").text("Fight This Monster Again!")
 		});
 	};
+
