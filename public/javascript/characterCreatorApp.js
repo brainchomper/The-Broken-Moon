@@ -1,3 +1,11 @@
+
+// list of variables that we'll need for the character build
+var hp = 0;
+var str = 0;
+var agi = 0;
+var int = 0;
+var charImage = '';
+
 $('#submitCharacter').on("click", function (event) {
 	// preventing the default
 	console.log("the button was clicked");
@@ -5,17 +13,22 @@ $('#submitCharacter').on("click", function (event) {
 	// make a new object for the api call
 
 	//get the values from the page and login info
-	var charClass = $("#class option:selected").val();
-	console.log(charClass)
-	var charAttr = evaluateClass(charClass);
+
+	var charClass = $("#characterClass option:selected").text();
+
+	evaluateClass(charClass);
+	var user_owner = getCookie("id_token");
+	console.log("user_owner   ", user_owner)
+
 	var newChar = {
 		// we need to access this from the local storage 
-		user_owner: 1,
+		user_owner: user_owner,
 
 		character_class: charClass,
 		character_name1: $("#charName1").val(),
 		character_name2: $("#charName2").val(),
-		character_img: charAttr.charImage,
+
+		character_img: charImage,
 		level: 1,
 		hp: charAttr.hp,
 		str: charAttr.str,
@@ -26,63 +39,79 @@ $('#submitCharacter').on("click", function (event) {
 	};
 	console.log('newchar', newChar);
 	$.ajax({
-		url: "/api/characters",
-		method: "POST",
-		data: newChar,
-		dataType: "json"
-	}
-	)
-		.then(console.log("stuff"))
+
+			url: "/api/characters",
+			method: "POST",
+			data: newChar,
+			dataType: "json"
+		})
+		.then(function (results) {
+			console.log("the query has posted")
+			$("#charName1").val(""),
+				$("#charName2").val("")
+		});
 });
 
 
 // uses a switchase on the classInput to change different attributes
 function evaluateClass(classInput) {
-	console.log("evaluating" + classInput);
+
+	console.log("evaluating")
 	switch (classInput) {
-		case "Wizard": {
-			return {
-				
-				hp: 10,
-				str: 5,
-				agi: 10,
-				int: 15,
-				charImage: "/assets/characterimages/wizard.png"
+		case "Wizard":
+			{
+				hp = 10;
+				str = 5;
+				agi = 10;
+				int = 20;
+				charImage = "assets/characterimages/wizard.png";
+
+
+				console.log("You're Making a wizard")
 			};
 
-
-			console.log("HP, wizard", hp)
-		};
+			break;
+		case "Rogue":
+			{
+				hp = 10;
+				str = 10;
+				agi = 20;
+				int = 5;
+				charImage = "need a file name"
+			}
+			console.log("You're making a Rogue")
 
 			break;
-		case "Rogue": {
-			return {
+		case "Warrior":
+			{
+				hp = 10;
+				str = 20;
+				agi = 5;
+				int = 10;
+				charImage = "need a file name"
+				console.log("You're making a Warrior")
 
-				hp: 10,
-				str: 10,
-				agi: 15,
-				int: 5,
-				charImage: "/assets/characterimages/rogue.png"
 			}
-		}
-			console.log("HP, rogue", hp)
-
-			break;
-		case "Warrior": {
-			return {
-
-				hp: 10,
-				str: 15,
-				agi: 5,
-				int: 10,
-				charImage: "/assets/characterimages/warrior.png"
-			}
-			console.log("HP,", hp)
-
-		}
 			break;
 		default:
-			console.log('dafuq')
+			console.log('nope.')
+
 	}
 
+}
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
 }

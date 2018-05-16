@@ -1,15 +1,25 @@
 <div class="row menuGame">
+	
 	<div class="col"></div>
+
 	<div class="col mainpage-col">
 		<img src="./images/broken-moon.png" class="img-fluid" alt="Broken Moon">
-		<img src="./images/brokenmoontitle.png" class="img-fluid" alt="Broken Moon">
-		<div class="g-menu" data-theme="dark"></div>
+
+		<img src= "./images/brokenmoontitle.png" class="img-fluid" alt="Broken Moon">
+		<div class="g-menu" data-theme="dark">
+
+<div class="row">
+	<div class="col"><button onclick="window.location.href='/character_creator'" class="btn btn-characterCreate">Character Creator</button></div>
+	<div class="col"><button onclick="window.location.href='/character_selector'" class="btn btn-characterCreate">Character Selection</button></div>
+</div>
+<hr>
+</div>
 
 
+{{!-- 
+	<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
 
-		<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
-
-		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
+		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a> --}}
 
 		<a class="btn btn-fight" href="/fight_screen" role="button">Fight</a>
 
@@ -25,6 +35,7 @@
 <script>
 	//check for login then redirect if not
 	var cookies = Cookies.get('id_token');
+	console.log(cookies)
 	if (cookies == undefined) {
 		location.href = "/";
 	}
