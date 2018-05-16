@@ -80,6 +80,17 @@ module.exports = function (app) {
 		res.send(monster);
 	});
 
+	app.get("/api/fightCharacter", function(req, res){
+		var cookie = req.cookies.characterID;
+		db.Character.findAll({
+			where: {
+				id: cookie
+			}
+		}).then(function(dbCharacter){
+			res.send(dbCharacter);
+		})
+	});
+
 	function pickRandom(object) {
 		var slotPick = object[(Math.floor(Math.random() * object.length))];
 		return slotPick;

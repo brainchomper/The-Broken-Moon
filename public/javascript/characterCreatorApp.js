@@ -60,7 +60,7 @@ function evaluateClass(classInput) {
 				str = 5;
 				agi = 10;
 				int = 20;
-				charImage = "/assets/characterimages/wizard.png";
+				charImage = "assets/characterimages/wizard.png";
 
 
 				console.log("You're Making a wizard")
