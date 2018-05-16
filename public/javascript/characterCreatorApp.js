@@ -1,10 +1,10 @@
+
 // list of variables that we'll need for the character build
 var hp = 0;
 var str = 0;
 var agi = 0;
 var int = 0;
 var charImage = '';
-
 
 $('#submitCharacter').on("click", function (event) {
 	// preventing the default
@@ -13,6 +13,7 @@ $('#submitCharacter').on("click", function (event) {
 	// make a new object for the api call
 
 	//get the values from the page and login info
+
 	var charClass = $("#characterClass option:selected").text();
 
 	evaluateClass(charClass);
@@ -26,17 +27,19 @@ $('#submitCharacter').on("click", function (event) {
 		character_class: charClass,
 		character_name1: $("#charName1").val(),
 		character_name2: $("#charName2").val(),
+
 		character_img: charImage,
 		level: 1,
-		hp: hp,
-		str: str,
-		agi: agi,
-		int: int,
+		hp: charAttr.hp,
+		str: charAttr.str,
+		agi: charAttr.agi,
+		int: charAttr.int,
 		exp: 0,
 		loot: ""
 	};
 	console.log('newchar', newChar);
 	$.ajax({
+
 			url: "/api/characters",
 			method: "POST",
 			data: newChar,
@@ -52,6 +55,7 @@ $('#submitCharacter').on("click", function (event) {
 
 // uses a switchase on the classInput to change different attributes
 function evaluateClass(classInput) {
+
 	console.log("evaluating")
 	switch (classInput) {
 		case "Wizard":
@@ -91,6 +95,7 @@ function evaluateClass(classInput) {
 			break;
 		default:
 			console.log('nope.')
+
 	}
 
 }

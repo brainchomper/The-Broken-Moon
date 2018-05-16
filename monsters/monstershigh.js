@@ -17,7 +17,7 @@ var monstersHigh = [
 	},
 	{
 		"name": "Demon",
-		"photo": "/demon.png",
+		"photo": "assets/monsterimages/demon.png",
 		"scores": [
 			hp = 27,
 			str = 12,
@@ -29,7 +29,7 @@ var monstersHigh = [
 	},
 	{
 		"name": "Vampire",
-		"photo": "/vampire.png",
+		"photo": "assets/monsterimages/vampire.png",
 		"scores": [
 			hp = 35,
 			str = 11,
@@ -42,7 +42,7 @@ var monstersHigh = [
 	},
 	{
 		"name": "Eye",
-		"photo": "/eye.png",
+		"photo": "assets/monsterimages/eye.png",
 		"scores": [
 			hp = 25,
 			str = 14,
@@ -54,7 +54,7 @@ var monstersHigh = [
 	},
 	{
 		"name": "Ghost",
-		"photo": "/ghost.png",
+		"photo": "assets/monsterimages/ghost.png",
 		"scores": [
 			hp = 25,
 			str = 13,
