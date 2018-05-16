@@ -7,12 +7,11 @@ var monstersLow = [
 		"name": "Goblin",
 		"photo": "",
 		"scores": [
-			"Goblin", //name
-			2, //strength
-			2, //agility
-			1, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 2,
+			agi = 2,
+			int = 1,
+			exp = 3
 		
 		]
 	},
@@ -20,25 +19,23 @@ var monstersLow = [
 		"name": "Kobold",
 		"photo": "",
 		"scores": [
-			"Kobold", //name
-			2, //strength
-			1, //agility
-			2, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 2,
+			agi = 1,
+			int = 2,
+			exp = 3
+
 		]
 	},
 	{
 		"name": "Slime",
 		"photo": "/slime.png",
 		"scores": [
-
-			"Slime", //name
-			3, //strength
-			2, //agility
-			1, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 3,
+			agi = 2,
+			int = 1,
+			exp = 3
 
 		]
 	},
@@ -46,12 +43,11 @@ var monstersLow = [
 		"name": "Wolf",
 		"photo": "/wolf.png",
 		"scores": [
-			"Wolf", //name
-			2, //strength
-			4, //agility
-			1, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 2,
+			agi = 4,
+			int = 1,
+			exp = 3
 
 		]
 	},
@@ -59,13 +55,11 @@ var monstersLow = [
 		"name": "Skeleton",
 		"photo": "/skeleman.png",
 		"scores": [
-
-			"Skeleman", //name
-			4, //strength
-			2, //agility
-			1, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 4,
+			agi = 2,
+			int = 1,
+			exp = 3
 
 		]
 	},
@@ -73,12 +67,11 @@ var monstersLow = [
 		"name": "Zombie",
 		"photo": "/zombie.png",
 		"scores": [
-			"Zombie", //name
-			3, //strength
-			1, //agility
-			1, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 3,
+			agi = 1,
+			int = 1,
+			exp = 3
 
 		]
 	},
@@ -86,12 +79,11 @@ var monstersLow = [
 		"name": "Fairy",
 		"photo": "/fairy.png",
 		"scores": [
-			"Goblin", //name
-			2, //strength
-			4, //agility
-			2, //intelligence
-			5, //hitpoints
-			3 //experience points
+			hp = 5,
+			str = 2,
+			agi = 3,
+			int = 2,
+			exp = 3
 
 		]
 	},
