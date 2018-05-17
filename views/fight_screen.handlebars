@@ -1,30 +1,35 @@
 <div class="container fightGame" id="fightGame">
 
 
-<a href="/menu">
-	<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
-</a>
+	<a href="/menu">
+		<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
+	</a>
 
 	<div class="row" id="fightRow"></div>
 	{{!-- info for the character --}}
 	<div class="row">
 		{{#each character}}
 		<div class="charFight">
-			<p class = "characterText">{{this.character_name1}} {{this.character_name2}} is ready to fight!</p>
+			<p class="characterText">{{this.character_name1}} {{this.character_name2}} is ready to fight!</p>
 			<img class="displayFightChar" src="assets/characterimages/wizard.png">
 		</div>
 		{{/each}}
-	<div id = "challengeBtns">
-		<button class="monsterSearchBtn" value="Easy">Fight Easy Monster</button>
-		<button class="monsterSearchBtn" value="Medium">Fight Medium Monster</button>
-		<button class="monsterSearchBtn" value="Hard">Fight Hard Monster</button>
-	</div>
-	{{!-- info for the monster and the buttons --}}
-	<div class="col md 6" id = "monsterDiv">
-		
-	</div>
-</div>
-</div>
+		<div id="challengeBtns">
+			<button class="monsterSearchBtn" value="Easy">Fight Easy Monster</button>
+			<button class="monsterSearchBtn" value="Medium">Fight Medium Monster</button>
+			<button class="monsterSearchBtn" value="Hard">Fight Hard Monster</button>
+		</div>
+		{{!-- info for the monster and the buttons --}}
+		<div class="col md 6" id="monsterDiv">
 
+		</div>
+	</div>
+</div>
+<script>
+	var cookies = Cookies.get('id_token');
+	if (cookies == undefined) {
+		location.href = "/";
+	}
+</script>
 
 <script src="javascript/fightscreenApp.js"></script>
