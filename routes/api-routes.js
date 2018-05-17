@@ -69,16 +69,37 @@ module.exports = function (app) {
 		res.send(monster);
 	});
 
-	app.get("/api/fightCharacter", function(req, res){
+	app.get("/api/fightCharacter", function (req, res) {
 		var cookie = req.cookies.characterID;
 		db.Character.findAll({
 			where: {
 				id: cookie
 			}
-		}).then(function(dbCharacter){
+		}).then(function (dbCharacter) {
 			res.send(dbCharacter);
 		})
 	});
+
+
+	app.put("/api/updatecharacter", function (req, res) {
+		var cookie = req.cookies.characterID;
+		var rb = req.body;
+		console.log("rb: ", rb);
+		db.Character.update({
+			hp: rb.newHP,
+			level:rb.newLvl,
+			agi: rb.newAgi,
+			str: rb.newStr,
+			int: rb.newInt,
+			loot: rb.newLoot,
+			exp: rb.newExp },{
+			where: {
+				id: cookie
+			}
+		}).then(function (updateChar) {
+			res.json(updateChar);
+		})
+	})
 
 	function pickRandom(object) {
 		var slotPick = object[(Math.floor(Math.random() * object.length))];

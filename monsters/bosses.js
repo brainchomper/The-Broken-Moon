@@ -5,7 +5,7 @@
 var bosses = [
 	{
 		"name": "Sloth",
-		"photo": "/sloth.png",
+		"photo": "images/bossimages/sloth.png",
 		"scores": [
 			hp = 12,
 			str = 6,
@@ -17,7 +17,7 @@ var bosses = [
 	},
 	{
 		"name": "Envy",
-		"photo": "/envy.png",
+		"photo": "images/bossimages/envy.png",
 		"scores": [
 			hp = 18,
 			str = 8,
@@ -29,7 +29,7 @@ var bosses = [
 	},
 	{
 		"name": "Lust",
-		"photo": "/lust.png",
+		"photo": "images/bossimages/lust.png",
 		"scores": [
 			hp = 24,
 			str = 10,
@@ -41,7 +41,7 @@ var bosses = [
 	},
 	{
 		"name": "Gluttony",
-		"photo": "/gluttony.png",
+		"photo": "images/bossimages/gluttony.png",
 		"scores": [
 			hp = 31,
 			str = 15,
@@ -53,7 +53,7 @@ var bosses = [
 	},
 	{
 		"name": "Greed",
-		"photo": "/greed.png",
+		"photo": "images/bossimages/greed.png",
 		"scores": [
 			hp = 40,
 			str = 18,
@@ -65,7 +65,7 @@ var bosses = [
 	},
 	{
 		"name": "Wrath",
-		"photo": "/wrath.png",
+		"photo": "images/bossimages/wrath.png",
 		"scores": [
 			hp = 47,
 			str = 22,
@@ -77,7 +77,7 @@ var bosses = [
 	},
 	{
 		"name": "Pride",
-		"photo": "/pride.png",
+		"photo": "images/bossimages/pride.png",
 		"scores": [
 			hp = 60,
 			str = 30,
