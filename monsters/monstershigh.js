@@ -18,6 +18,7 @@ var monstersHigh = [
 	{
 		"name": "Demon",
 		"photo": "images/monsterimages/demon.png",
+
 		"scores": [
 			hp = 27,
 			str = 12,
@@ -30,6 +31,7 @@ var monstersHigh = [
 	{
 		"name": "Vampire",
 		"photo": "images/monsterimages/vampire.png",
+
 		"scores": [
 			hp = 35,
 			str = 11,
@@ -43,6 +45,7 @@ var monstersHigh = [
 	{
 		"name": "Eye",
 		"photo": "images/monsterimages/eye.png",
+
 		"scores": [
 			hp = 25,
 			str = 14,

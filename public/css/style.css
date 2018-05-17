@@ -4,7 +4,9 @@ body {
 	background-color: black;
 	font-family: 'Press Start 2P', cursive;
 }
-
+.menu-image{
+	width: 75%;
+}
 html, body { height: 100%; overflow: hidden}
 
 
@@ -12,10 +14,13 @@ html, body { height: 100%; overflow: hidden}
 	align-content: center;
 	text-align: center;
 }
-
+p,h1,h2,h3{
+	color:white;
+}
 .img-center {
 	width: 10%;
 }
+
 
 h1, p, h3 {
 	color: white;
@@ -28,6 +33,7 @@ hr {
 }
 
 .btn {
+
 	background-color: #505050;
 	font-family: 'Press Start 2P', cursive;
 }

@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="/css/selector_css.css">
-<a href="/menu">
-	<button type="button" class="btn btn-secondary btn-rounded hidden" id="menuBtn">Back to the menu!</button>
-</a>
+
 <div class="container">
+
+	<div class="row">
+		<div class="col"><button id="fightBtn" type="button" class="btn btn-success btn-lg btn-block">Fight with Selected Character</button></div>
+		<div class="col"><button onclick="window.location.href='/menu'" type="button" class="btn btn-deep-orange btn-lg btn-block" id="menuBtn">Back to the menu!</button></div>
+	</div>
+	
 </div>
 <div class="container cards">
 	{{!-- handlebars all the rogue characters --}} {{#each characters}}
@@ -12,30 +16,30 @@
 			<h4 class="card-title">{{this.character_name1}} {{this.character_name2}}</h4>
 			<h6 class="card-subtitle mb-2 text-muted">A Level {{this.level}} {{this.character_class}}</h6>
 			<img src="/images/bk-moon1.jpg" alt="" class="cardImg">
-			
-			<table class = "statsTable">
-				<tr>
-					<th class = "th1">HP</th>
-					<th class = "th1">STR</th>
-					<th class = "th1">AGI</th>
-					<th class = "th1">INT</th>
-				</tr>
-				<tr>
-					<td class = "td1">{{this.hp}}</td>
-					<td class = "td1">{{this.str}}</td>
-					<td class = "td1">{{this.agi}}</td>
-					<td class = "td1">{{this.int}}</td>
-				</tr>
-				<tr><th>Loot:</th></tr>
-				<tr>
-					<td>{{this.loot}}</td></tr>
-			</table>
-			<button id="{{this.id}}" class = "pickCharacter"> Select This Character!</button>
+
+			<div class="row">
+				<div class="col th1">HP</div>
+				<div class="col th1">STR</div>
+				<div class="col th1">AGI</div>
+				<div class="col th1">INT</div>
+			</div>
+			<div class="row">
+				<div class="col td1">{{this.hp}}</div>
+				<div class="col td1">{{this.str}}</div>
+				<div class="col td1">{{this.agi}}</div>
+				<div class="col td1">{{this.int}}</div>
+			</div>
+			<button id="{{this.id}}" class="btn btn-default pickCharacter"> Select This Character!</button>
 		</div>
 	</div>
 
 	{{/each}}
 </div>
 
-
-<script src = "/javascript/characterSelectorApp.js"></script>
+<script>
+	var cookies = Cookies.get('id_token');
+		if (cookies == undefined) {
+		location.href = "/";
+	}
+</script>
+<script src="/javascript/characterSelectorApp.js"></script>

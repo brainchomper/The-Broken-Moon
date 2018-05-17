@@ -2,21 +2,18 @@
 <div class="row menuGame">
 	<div class="col"></div>
 	<div class="col mainpage-col">
-		<img src="./images/broken-moon.png" class="img-fluid" alt="Broken Moon">
+		<img src="./images/broken-moon.png" class="img-fluid menu-image" alt="Broken Moon">
 		<img src= "./images/brokenmoontitle.png"
-		class="img-fluid" alt="Broken Moon">
+		class="img-fluid menu-image" alt="Broken Moon">
 		<div class="g-menu" data-theme="dark"></div>
-
-
-
-		<a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a>
-
-		<a class="btn btn-characterSelect" href="/character_selector" role="button">Character Selection</a>
-
-		<a class="btn btn-fight" href="/fight_screen" role="button">Fight</a>
-
+<button onclick="window.location.href='/fight_screen'" type="button" class="btn btn-fight btn-success btn-block">Fight</button>
+<p></p>
+<button onclick="window.location.href='/character_creator'" type="button" class="btn btn-characterCreate btn-block">Character Creation</button>
+<p></p>		{{!-- <a class="btn btn-characterCreate" href="/character_creator" role="button">Character Creation</a> --}}
+<button onclick="window.location.href='/character_selector'" type="button" class="btn btn-characterSelect btn-block">Character Selection</button>
+	<p></p>
 		{{!-- logout btn --}}
-		<button type="button" class="btn btn-danger btn-rounded" id="logout" onclick="signOut();">Sign Out</button>
+		<button type="button" class="btn btn-danger btn-rounded btn-block" id="logout" onclick="signOut();">Sign Out</button>
 
 
 	</div>
@@ -27,7 +24,6 @@
 <script>
 //check for login then redirect if not
 	var cookies = Cookies.get('id_token');
-	console.log(cookies)
 	if (cookies == undefined) {
 		location.href = "/";
 	}
