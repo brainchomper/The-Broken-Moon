@@ -32,17 +32,7 @@
 			event.preventDefault();
 			console.log("clicking the start over btn")
 			// empty the fightRow
-			$("#fightRow").empty();
-			var eBtn = buttonMaker("Easy");
-			var mBtn = buttonMaker("Medium");
-			var hBtn = buttonMaker("Hard");
-
-			$("#challengeBtns")
-
-				.empty()
-				.append(
-					eBtn, mBtn, hBtn
-				)
+			pageReset();
 		});
 
 		$('body').on("click", ".fightStartBtn", function (event) {
@@ -114,6 +104,7 @@
 
 		var monsterImg = $("<img>")
 		.attr("src", obj.photo)
+		.attr("id", "monsterImg")
 		.addClass("displayFightMon animated flip")
 		// move the buttons out and replace w/ the monster info
 		$("#monsterDiv").html(monsterImg);
@@ -222,55 +213,59 @@
 	};
 
 	function win(obj1 ){
-		// update the button text
+		// update the buttons text after some animations
+		$("#monsterImg")
+		.removeClass("flip")
+		.addClass("flash")
+		setTimeout(function(){
+			$("#monsterImg").addClass("slideOutDown")
+		}, 3000)
+		setTimeout(pageReset(), 3000)
+		
 		// add experience points
-		var exp;
-		switch(challengeRating){
-			case "Easy" : {
-				exp = 5;
-			}
-			break;
-			case "Medium" : {
-				exp = 10;
-			}
-			break;
-			case"Hard" : {
-				exp = 15;
-			}
-			break;
-			default: 
-			console.log("Nope");
-		}
-		// calculate if they level or not
-		if (exp > 100){
-			obj1.levelUp();
-			exp -= 100
-		}
-		//do the put request either way.
-		var updateValuesObj = {
-			newHp: obj1.maxHp,
-			newStr: obj1.str,
-			newInt: obj1.int,
-			newAgi: obj1.agi,
-			newLoot: obj1.loot,
-			newExp: obj1.exp
-		}
+		// var exp;
+		// switch(challengeRating){
+		// 	case "Easy" : {
+		// 		exp = 5;
+		// 	}
+		// 	break;
+		// 	case "Medium" : {
+		// 		exp = 10;
+		// 	}
+		// 	break;
+		// 	case"Hard" : {
+		// 		exp = 15;
+		// 	}
+		// 	break;
+		// 	default: 
+		// 	console.log("Nope");
+		// }
+		// // calculate if they level or not
+		// if (exp > 100){
+		// 	obj1.levelUp();
+		// 	exp -= 100
+		// }
+		// //do the put request either way.
+		// var updateValuesObj = {
+		// 	newHp: obj1.maxHp,
+		// 	newStr: obj1.str,
+		// 	newInt: obj1.int,
+		// 	newAgi: obj1.agi,
+		// 	newLoot: obj1.loot,
+		// 	newExp: obj1.exp
+		// }
 
-		$.ajax({
-			method: "PUT",
-			url: "/api/updateCharacter",
-			data: updateValuesObj,
-			type: "json"
-		}).then(function(results){
-			$(".fightStartBtn").text("Fight This Monster Again!")
-		});
+		// $.ajax({
+		// 	method: "PUT",
+		// 	url: "/api/updateCharacter",
+		// 	data: updateValuesObj,
+		// 	type: "json"
+		// }).then(function(results){
+		// 	$(".fightStartBtn").text("Fight This Monster Again!")
+		// });
 	};
 
-	function loadGameOver() {
-    setTimeout(function () {
-					window.location="/game_over";
-    }, 5000);
-}
+	
 function lose(){
 	$("#char1").addClass("animated flash");
 	$(".displayFightMon animated flip").addClass("")
@@ -278,7 +273,25 @@ function lose(){
 		$("#char1").addClass("slideOutDown")
 	}, 3000)
 	loadGameOver();
+	setTimeout(function () {
+		window.location="/game_over";
+}, 5000);
 	
 }
 
 
+function pageReset(){
+	$("#fightRow").empty();
+			
+			var eBtn = buttonMaker("Easy");
+			var mBtn = buttonMaker("Medium");
+			var hBtn = buttonMaker("Hard");
+
+			$("#challengeBtns")
+
+				.empty()
+				.append(
+					eBtn, mBtn, hBtn
+				)
+				
+}
