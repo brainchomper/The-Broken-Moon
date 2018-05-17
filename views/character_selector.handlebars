@@ -14,7 +14,7 @@
 		<div class="card-body">
 			<h4 class="card-title">{{this.character_name1}} {{this.character_name2}}</h4>
 			<h6 class="card-subtitle mb-2 text-muted">A Level {{this.level}} {{this.character_class}}</h6>
-			<img src="/images/bk-moon1.jpg" alt="" class="cardImg">
+			<img src="{{this.character_img}}" alt="" class="cardImg">
 
 			<div class="row">
 				<div class="col th1">HP</div>
@@ -28,7 +28,7 @@
 				<div class="col td1">{{this.agi}}</div>
 				<div class="col td1">{{this.int}}</div>
 			</div>
-			<button id="{{this.id}}" class="btn btn-success pickCharacter"> Select This Character!</button>
+			<button id="{{this.id}}" class="btn btn-success pickCharacter" onclick="window.location.href='/fight_screen'"> Select This Character!</button>
 		</div>
 	</div>
 

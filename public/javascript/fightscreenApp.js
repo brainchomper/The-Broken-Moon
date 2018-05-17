@@ -1,7 +1,7 @@
 	// placeholder for the values we will get from the monster later
 	var monsterScoreArr = [];
 	var monsterName;
-
+	var initText;
 	var userArr = [];
 
 
@@ -19,7 +19,7 @@
 	}
 
 	$(document).ready(function () {
-
+		initText = $(".characterText").text();
 		$('body').on("click", ".monsterSearchBtn", function (event) {
 			console.log("Click click click click click for the api")
 			event.preventDefault();
@@ -103,9 +103,9 @@
 		// make a new card but with custom class
 
 		var monsterImg = $("<img>")
-		.attr("src", obj.photo)
-		.attr("id", "monsterImg")
-		.addClass("displayFightMon animated flip")
+			.attr("src", obj.photo)
+			.attr("id", "monsterImg")
+			.addClass("displayFightMon animated flip")
 		// move the buttons out and replace w/ the monster info
 		$("#monsterDiv").html(monsterImg);
 
@@ -130,8 +130,8 @@
 	};
 
 	// function that will allow us to make random values out of the attack items each time
-	function randomRoll(strength){
-	return	Math.floor(Math.random()* strength) + 1
+	function randomRoll(strength) {
+		return Math.floor(Math.random() * strength) + 1
 	}
 
 	function Character(obj) {
@@ -167,7 +167,7 @@
 			this.int += 5;
 			this.maxHp += 5;
 			this.loot += 50;
-			this.level +=1;
+			this.level += 1;
 		};
 	}
 
@@ -200,7 +200,7 @@
 		var obj1Alive = obj1.isAlive();
 		var obj2Alive = obj2.isAlive();
 
-		console.log("Obj1: ",  obj1Alive, "Obj2 Alive:", obj2Alive);
+		console.log("Obj1: ", obj1Alive, "Obj2 Alive:", obj2Alive);
 		if (obj1Alive && obj2Alive) {
 			console.log("More fisticuffs!")
 			battle(obj1, obj2)
@@ -213,39 +213,47 @@
 		}
 	};
 
-	function win(obj1 ){
+	function win(obj1) {
 		// update the buttons text after some animations
 		$("#monsterImg")
-		.removeClass("flip")
-		.addClass("flash")
-		setTimeout(function(){
+			.removeClass("flip")
+			.addClass("flash")
+		setTimeout(function () {
 			$("#monsterImg").addClass("slideOutDown")
-		}, 3000)
+		}, 2000)
 		setTimeout(pageReset(), 3000)
-		
+
 		// add experience points
 		var exp;
-		switch(challengeRating){
-			case "Easy" : {
-				exp = 5;
-			}
-			break;
-			case "Medium" : {
-				exp = 10;
-			}
-			break;
-			case"Hard" : {
-				exp = 15;
-			}
-			break;
-			default: 
-			console.log("Nope");
+		switch (challengeRating) {
+			case "Easy":
+				{
+					exp = 45;
+				}
+				break;
+			case "Medium":
+				{
+					exp = 55;
+				}
+				break;
+			case "Hard":
+				{
+					exp = 75;
+				}
+				break;
+			case "Boss":
+				{
+					exp = 125
+				}
+			default:
+				console.log("Nope");
 		}
 		obj1.exp += exp
 		// calculate if they level or not
-		if (obj1.exp > 100){
+		if (obj1.exp > 100) {
 			obj1.levelUp();
 			obj1.exp -= 100
+			alert("Your character leveled up!  Maybe try a harder monster now!")
 		}
 		//do the put request either way.
 		var updateValuesObj = {
@@ -263,38 +271,40 @@
 			url: "/api/updateCharacter",
 			data: updateValuesObj,
 			type: "json"
-		}).then(function(results){
+		}).then(function (results) {
 
 		});
 	};
 
-	
-function lose(){
-	$("#char1").addClass("animated flash");
-	$(".displayFightMon animated flip").addClass("")
-	setTimeout(function(){
-		$("#char1").addClass("slideOutDown")
-	}, 3000)
-	loadGameOver();
-	setTimeout(function () {
-		window.location="/game_over";
-}, 5000);
-	
-}
+
+	function lose() {
+		$(".characterText").text("You lost!!")
+		$("#char1").addClass("animated flash");
+		$(".displayFightMon animated flip").addClass("")
+		setTimeout(function () {
+			$("#char1").addClass("slideOutDown")
+		}, 3000)
+		loadGameOver();
+		setTimeout(function () {
+			window.location = "/game_over";
+		}, 5000);
+
+	}
 
 
-function pageReset(){
-	$("#fightRow").empty();
-			
-			var eBtn = buttonMaker("Easy");
-			var mBtn = buttonMaker("Medium");
-			var hBtn = buttonMaker("Hard");
+	function pageReset() {
+		$("#fightRow").empty();
 
-			$("#challengeBtns")
+		var eBtn = buttonMaker("Easy");
+		var mBtn = buttonMaker("Medium");
+		var hBtn = buttonMaker("Hard");
+		var bBtn = buttonMaker("Boss")
 
-				.empty()
-				.append(
-					eBtn, mBtn, hBtn
-				)
-				
-}
+		$("#challengeBtns")
+
+			.empty()
+			.append(
+				eBtn, mBtn, hBtn, bBtn
+			)
+			$(".characterText").text(initText);
+	}

@@ -2,6 +2,7 @@ var db = require("../models");
 var monstersLow = require("../monsters/monsterslow.js");
 var monstersMed = require("../monsters/monstersmedium.js");
 var monstersHigh = require("../monsters/monstershigh.js");
+var boss = require("../monsters/bosses.js");
 
 
 console.log('----- db.User.', db.User);
@@ -64,7 +65,7 @@ module.exports = function (app) {
 	});
 
 	app.get("/api/findBoss", function (req, res) {
-		var monster = pickRandom(monstersHigh);
+		var monster = pickRandom(boss);
 		console.log("monster", monster);
 		res.send(monster);
 	});
