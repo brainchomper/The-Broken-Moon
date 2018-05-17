@@ -30,10 +30,10 @@ $('#submitCharacter').on("click", function (event) {
 
 		character_img: charImage,
 		level: 1,
-		hp: charAttr.hp,
-		str: charAttr.str,
-		agi: charAttr.agi,
-		int: charAttr.int,
+		hp: hp,
+		str: str,
+		agi: agi,
+		int: int,
 		exp: 0,
 		loot: ""
 	};
