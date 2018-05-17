@@ -4,30 +4,6 @@
 // ===============================================================================
 var monstersLow = [
 	{
-		"name": "Goblin",
-		"photo": "",
-		"scores": [
-			hp = 5,
-			str = 2,
-			agi = 2,
-			int = 1,
-			exp = 3
-		
-		]
-	},
-	{
-		"name": "Kobold",
-		"photo": "",
-		"scores": [
-			hp = 5,
-			str = 2,
-			agi = 1,
-			int = 2,
-			exp = 3
-
-		]
-	},
-	{
 		"name": "Slime",
 		"photo": "images/monsterimages/slime.png",
 		"scores": [
