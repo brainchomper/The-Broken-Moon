@@ -4,7 +4,9 @@ body {
 	background-color: black;
 	font-family: 'Press Start 2P', cursive;
 }
-
+.menu-image{
+	width: 75%;
+}
 html, body { height: 100%; overflow: hidden}
 
 
