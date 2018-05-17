@@ -11,7 +11,6 @@
 	// globally scoped pseudo-react pieces:
 
 	function buttonMaker(obj) {
-		console.log("obj", obj)
 		return $("<button>")
 			.addClass("btn btn-danger monsterSearchBtn")
 			.attr("value", obj)
@@ -270,17 +269,17 @@
 
 	
 function lose(){
+	$(".characterText").text("")
 	$("#char1").addClass("animated flash");
 	$(".displayFightMon animated flip").addClass("")
 	setTimeout(function(){
 		$("#char1").addClass("slideOutDown")
 	}, 3000)
-	loadGameOver();
 	setTimeout(function () {
 		window.location="/game_over";
 }, 5000);
 	
-}
+};
 
 
 function pageReset(){
@@ -289,12 +288,11 @@ function pageReset(){
 			var eBtn = buttonMaker("Easy");
 			var mBtn = buttonMaker("Medium");
 			var hBtn = buttonMaker("Hard");
-
+			var bBtn = buttonMaker("Boss");
 			$("#challengeBtns")
 
 				.empty()
 				.append(
-					eBtn, mBtn, hBtn
+					eBtn, mBtn, hBtn, bBtn
 				)
-				
-}
+};
