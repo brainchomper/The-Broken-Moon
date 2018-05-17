@@ -24,6 +24,8 @@ module.exports = function (app) {
 				user_owner: cookie
 			}
 		}).then(function (dbResults) {
+			console.log(user_owner);
+			console.log("testing");
 			var hbsObj = {
 				characters: dbResults
 			}
