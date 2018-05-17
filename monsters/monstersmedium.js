@@ -17,7 +17,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Gorgon",
-		"photo": "/gorgon.png",
+		"photo": "/images/monsterimages/gorgon.png",
 		"scores": [
 			hp = 10,
 			str = 6,
@@ -29,7 +29,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Gunslinger",
-		"photo": "/gunslinger.png",
+		"photo": "/images/monsterimages/gunslinger.png",
 		"scores": [
 			hp = 10,
 			str = 5,
@@ -53,7 +53,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Mummy",
-		"photo": "/mummy.png",
+		"photo": "/images/monsterimages/mummy.png",
 		"scores": [
 			hp = 10,
 			str = 5,
