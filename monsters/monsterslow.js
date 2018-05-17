@@ -29,7 +29,7 @@ var monstersLow = [
 	},
 	{
 		"name": "Slime",
-		"photo": "/slime.png",
+		"photo": "images/monsterimages/slime.png",
 		"scores": [
 			hp = 5,
 			str = 3,
@@ -41,7 +41,7 @@ var monstersLow = [
 	},
 	{
 		"name": "Wolf",
-		"photo": "/wolf.png",
+		"photo": "images/monsterimages/wolf.png",
 		"scores": [
 			hp = 5,
 			str = 2,
@@ -53,7 +53,7 @@ var monstersLow = [
 	},
 	{
 		"name": "Skeleton",
-		"photo": "/skeleman.png",
+		"photo": "images/monsterimages/skeleman.png",
 		"scores": [
 			hp = 5,
 			str = 4,
@@ -65,7 +65,7 @@ var monstersLow = [
 	},
 	{
 		"name": "Zombie",
-		"photo": "/zombie.png",
+		"photo": "images/monsterimages/zombie.png",
 		"scores": [
 			hp = 5,
 			str = 3,
@@ -77,7 +77,7 @@ var monstersLow = [
 	},
 	{
 		"name": "Fairy",
-		"photo": "/fairy.png",
+		"photo": "images/monsterimages/fairy.png",
 		"scores": [
 			hp = 5,
 			str = 2,
