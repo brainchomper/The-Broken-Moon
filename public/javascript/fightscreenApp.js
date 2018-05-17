@@ -167,6 +167,7 @@
 			this.int += 5;
 			this.maxHp += 5;
 			this.loot += 50;
+			this.level +=1;
 		};
 	}
 
@@ -223,46 +224,48 @@
 		setTimeout(pageReset(), 3000)
 		
 		// add experience points
-		// var exp;
-		// switch(challengeRating){
-		// 	case "Easy" : {
-		// 		exp = 5;
-		// 	}
-		// 	break;
-		// 	case "Medium" : {
-		// 		exp = 10;
-		// 	}
-		// 	break;
-		// 	case"Hard" : {
-		// 		exp = 15;
-		// 	}
-		// 	break;
-		// 	default: 
-		// 	console.log("Nope");
-		// }
-		// // calculate if they level or not
-		// if (exp > 100){
-		// 	obj1.levelUp();
-		// 	exp -= 100
-		// }
-		// //do the put request either way.
-		// var updateValuesObj = {
-		// 	newHp: obj1.maxHp,
-		// 	newStr: obj1.str,
-		// 	newInt: obj1.int,
-		// 	newAgi: obj1.agi,
-		// 	newLoot: obj1.loot,
-		// 	newExp: obj1.exp
-		// }
+		var exp;
+		switch(challengeRating){
+			case "Easy" : {
+				exp = 5;
+			}
+			break;
+			case "Medium" : {
+				exp = 10;
+			}
+			break;
+			case"Hard" : {
+				exp = 15;
+			}
+			break;
+			default: 
+			console.log("Nope");
+		}
+		obj1.exp += exp
+		// calculate if they level or not
+		if (obj1.exp > 100){
+			obj1.levelUp();
+			obj1.exp -= 100
+		}
+		//do the put request either way.
+		var updateValuesObj = {
+			newHp: obj1.maxHp,
+			newStr: obj1.str,
+			newInt: obj1.int,
+			newAgi: obj1.agi,
+			newLoot: obj1.loot,
+			newExp: obj1.exp,
+			newLvl: obj1.level
+		}
 
-		// $.ajax({
-		// 	method: "PUT",
-		// 	url: "/api/updateCharacter",
-		// 	data: updateValuesObj,
-		// 	type: "json"
-		// }).then(function(results){
-		// 	$(".fightStartBtn").text("Fight This Monster Again!")
-		// });
+		$.ajax({
+			method: "PUT",
+			url: "/api/updateCharacter",
+			data: updateValuesObj,
+			type: "json"
+		}).then(function(results){
+
+		});
 	};
 
 	
