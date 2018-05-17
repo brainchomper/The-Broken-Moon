@@ -49,7 +49,7 @@ $('#submitCharacter').on("click", function (event) {
 			console.log("the query has posted")
 			$("#charName1").val(""),
 				$("#charName2").val("")
-		});
+		}).then(location.reload());
 });
 
 
@@ -64,7 +64,7 @@ function evaluateClass(classInput) {
 				str = 5;
 				agi = 10;
 				int = 20;
-				charImage = "assets/characterimages/wizard.png";
+				charImage = "images/characterimages/wizard.png";
 
 
 				console.log("You're Making a wizard")
@@ -77,7 +77,7 @@ function evaluateClass(classInput) {
 				str = 10;
 				agi = 20;
 				int = 5;
-				charImage = "need a file name"
+				charImage = "images/characterimages/rogue.png"
 			}
 			console.log("You're making a Rogue")
 
@@ -88,7 +88,7 @@ function evaluateClass(classInput) {
 				str = 20;
 				agi = 5;
 				int = 10;
-				charImage = "need a file name"
+				charImage = "images/characterimages/warrior.png"
 				console.log("You're making a Warrior")
 
 			}

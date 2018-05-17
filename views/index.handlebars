@@ -35,6 +35,7 @@
 				url: "/api/user",
 				type: "POST",
 				data: {
+					user_id: profile.getId(),
 					id_token: id_token,
 					user_name: profile.getName(),
 					user_email: profile.getEmail(),

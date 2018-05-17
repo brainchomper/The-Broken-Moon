@@ -1,35 +1,50 @@
-body{
-	margin: auto;	
+body {
+	margin: auto;
 	width: 80%;
 	background-color: black;
 	font-family: 'Press Start 2P', cursive;
 }
-.mainpage-col{
-	align-content: center;
-	text-align:center;
+.menu-image{
+	width: 75%;
 }
-.img-center{
+html, body { height: 100%; overflow: hidden}
+
+
+.mainpage-col {
+	align-content: center;
+	text-align: center;
+}
+p,h1,h2,h3{
+	color:white;
+}
+.img-center {
 	width: 10%;
 }
-h1,p,h3{
+
+
+
+h1, p, h3 {
 	color: white;
 }
-hr{
+
+hr {
 	border-style: solid;
 	border-width: 5px;
-border-color: white, 1px;
+	border-color: white, 1px;
 }
-.btn{
+
+.btn {
+
 	background-color: #505050;
 	font-family: 'Press Start 2P', cursive;
 }
 
-.g-signin2{
-text-align: center;
+.g-signin2 {
+	text-align: center;
 }
 
-.g-signin2 > div{
-  margin: 0 auto;
+.g-signin2>div {
+	margin: 0 auto;
 }
 
 input[type=text] {
@@ -38,35 +53,37 @@ input[type=text] {
 }
 
 
-#charDisplay{
+#displayChar {
 	background-color: #505050;
 }
 
-#displayChar{
+#displayChar {
 	width: 25%;
+	height: 306px;
 }
 
-.fightGame {
-		background: url("/public/images/bk-moon1.jpg") no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	 }
+#fightGame {
+	height: 800px;
+	background: url("../images/bk-moon1.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 
-
-.monFight {
+#monsterDiv {
 	position: absolute;
-	top: 48%;
+	top: 67%;
 	width: 70%;
 	left: 16%;
 }
 
 .displayFightMon {
-	height: 25%;
-	width: 32%;
+
+	height: 27%;
+	width: 15%;
 	position: relative;
-	bottom: 220%;
+	bottom: -74%;
 	left: 60%;
 }
 
@@ -82,3 +99,11 @@ input[type=text] {
 	bottom: 240%;
 	position: relative;
 }
+
+.characterText {
+	color: black;
+	margin-bottom: 0px;
+}
+/* #challengeBtns {
+	margin-bottom: 700px;
+} */

@@ -1,7 +1,9 @@
 	// placeholder for the values we will get from the monster later
 	var monsterScoreArr = [];
 	var monsterName;
+	var userText;
 	var userArr = [];
+
 
 	//placeholder variable for the challenge rating of the fight
 	var challengeRating;
@@ -9,14 +11,15 @@
 	// globally scoped pseudo-react pieces:
 
 	function buttonMaker(obj) {
-		console.log("obj", obj)
 		return $("<button>")
-			.addClass("monsterSearchBtn")
+			.addClass("btn btn-danger monsterSearchBtn")
 			.attr("value", obj)
 			.text("Fight " + obj + " Monster");
 	}
 
 	$(document).ready(function () {
+		userText = $(".characterText").text()
+
 
 		$('body').on("click", ".monsterSearchBtn", function (event) {
 			console.log("Click click click click click for the api")
@@ -30,22 +33,17 @@
 			event.preventDefault();
 			console.log("clicking the start over btn")
 			// empty the fightRow
-			$("#fightRow").empty();
-			var eBtn = buttonMaker("Easy");
-			var mBtn = buttonMaker("Medium");
-			var hBtn = buttonMaker("Hard");
-			$("#monsterDiv")
-				.empty()
-				.append(
-					eBtn, mBtn, hBtn
-				)
+			pageReset();
 		});
+
 		$('body').on("click", ".fightStartBtn", function (event) {
+
 			event.preventDefault();
 			// hey so we need to put the fight code in here yo
 			$.ajax({
 				url: "/api/fightCharacter",
 				method: "GET"
+
 			}).then(function (results) {
 				console.log("results of the character query: ", results)
 				var uA = results[0];
@@ -98,32 +96,29 @@
 	}
 
 	function visualize(obj) {
-		var cbody = $("<div>").addClass("card-body");
-		var newImg = $("<img>").attr("src", obj.photo).addClass("monsterImg");
-		var header = $("<h4>").addClass("card-title").text(obj.name);
+
+
 		// update the scoreArr that we will use later for the fight functions
 		monsterScoreArr = obj.scores;
 		monsterName = obj.name;
 		// make a new card but with custom class
-		var updateDiv =
-			$("<div>")
-			.addClass("card monsterCard")
-			// fill the insides
-			.append(
-				cbody
-				.append(newImg, header)
-			)
+
+		var monsterImg = $("<img>")
+			.attr("src", obj.photo)
+			.attr("id", "monsterImg")
+			.addClass("displayFightMon animated flip")
 		// move the buttons out and replace w/ the monster info
-		$("#monsterDiv").html(updateDiv);
+		$("#monsterDiv").html(monsterImg);
+
 		// update the fightrow with a button
 		var fightBtn = $("<button>")
-			.addClass("fightStartBtn")
+			.addClass("btn btn-success fightStartBtn")
 			.text("Start the fight!");
 		var newChallenge = $("<button>")
-			.addClass("startOverBtn")
+			.addClass("btn btn-indigo startOverBtn")
 			.text("Change Difficulty Rating");
 		var newMonster = $("<button>")
-			.addClass("monsterSearchBtn")
+			.addClass("btn btn-pink monsterSearchBtn")
 			.attr("value", challengeRating)
 			.text("Random Monster (Same Difficulty)");
 
@@ -132,13 +127,20 @@
 			.empty()
 			.append(fightBtn, newChallenge, newMonster)
 
+		$("#challengeBtns").empty()
 	};
+
+	// function that will allow us to make random values out of the attack items each time
+	function randomRoll(strength) {
+		return Math.floor(Math.random() * strength) + 1
+	}
 
 	function Character(obj) {
 		this.charClass = obj.character_class
 		this.name = obj.character_name1;
 		this.level = obj.level;
 		this.hp = obj.hp;
+		this.maxHp = obj.hp;
 		this.str = obj.str;
 		this.agi = obj.agi;
 		this.int = obj.int;
@@ -156,7 +158,7 @@
 
 		// method which takes in a second object and decreases their "hitpoints" by this character's strength
 		this.attack = function (character2) {
-			character2.hp -= this.str;
+			character2.hp -= randomRoll(this.str);
 		};
 
 		// method which increases this character's stats when called
@@ -164,8 +166,9 @@
 			this.str += 5;
 			this.agi += 5;
 			this.int += 5;
-			this.hp += 5;
+			this.maxHp += 5;
 			this.loot += 50;
+			this.level += 1;
 		};
 	}
 
@@ -187,7 +190,7 @@
 
 		// method which takes in a second object and decreases their "hitpoints" by this character's strength
 		this.attack = function (character2) {
-			character2.hp -= this.str;
+			character2.hp -= randomRoll(this.str);
 		};
 	}
 
@@ -195,12 +198,114 @@
 
 		obj1.attack(obj2);
 		obj2.attack(obj1);
+		var obj1Alive = obj1.isAlive();
+		var obj2Alive = obj2.isAlive();
 
-		if (obj1.isAlive() && obj2.isAlive()) {
+		console.log("Obj1: ", obj1Alive, "Obj2 Alive:", obj2Alive);
+		if (obj1Alive && obj2Alive) {
+			console.log("More fisticuffs!")
 			battle(obj1, obj2)
-		} else if (obj1.isAlive()) {
-			win(obj1)
+		} else if (obj1Alive && !obj2Alive) {
+			console.log("The user won!")
+			win(obj1);
 		} else {
+			console.log("The user lost!")
 			lose();
 		}
+	};
+
+	function win(obj1) {
+		$(".characterText").text("You Won!");
+		$("#char1").addClass("animated bounce");
+		// update the buttons text after some animations
+		$("#monsterImg")
+			.removeClass("flip")
+			.addClass("flash")
+		setTimeout(function () {
+			$("#monsterImg").addClass("slideOutDown")
+		}, 3000)
+		setTimeout(pageReset(), 3000)
+
+		// add experience points
+		var exp;
+		switch (challengeRating) {
+			case "Easy":
+				{
+					exp = 50;
+				}
+				break;
+			case "Medium":
+				{
+					exp = 75;
+				}
+				break;
+			case "Hard":
+				{
+					exp = 95;
+				}
+				break;
+			case "Boss":{
+				exp = 125;
+			}
+			default:
+				console.log("Nope");
+		}
+		obj1.exp += exp
+		// calculate if they level or not
+		if (obj1.exp > 100) {
+			obj1.levelUp();
+			obj1.exp -= 100
+			alert("Your Character Leveled Up and is stronger now!  Maybe try a stronger boss!")
+		}
+		//do the put request either way.
+		var updateValuesObj = {
+			newHp: obj1.maxHp,
+			newStr: obj1.str,
+			newInt: obj1.int,
+			newAgi: obj1.agi,
+			newLoot: obj1.loot,
+			newExp: obj1.exp,
+			newLvl: obj1.level
+		}
+
+		$.ajax({
+			method: "PUT",
+			url: "/api/updateCharacter",
+			data: updateValuesObj,
+			type: "json"
+		}).then(function (results) {
+
+		});
+	};
+
+
+	function lose() {
+		$(".characterText").text("You Lost!")
+		$("#char1").addClass("animated flash");
+		$(".displayFightMon animated flip").addClass("")
+		setTimeout(function () {
+			$("#char1").addClass("slideOutDown")
+		}, 3000)
+		setTimeout(function () {
+			window.location = "/game_over";
+		}, 5000);
+
+	};
+
+
+	function pageReset() {
+		$("#fightRow").empty();
+
+		var eBtn = buttonMaker("Easy");
+		var mBtn = buttonMaker("Medium");
+		var hBtn = buttonMaker("Hard");
+		var bBtn = buttonMaker("Boss");
+		$("#challengeBtns")
+
+			.empty()
+			.append(
+				eBtn, mBtn, hBtn, bBtn
+			)
+		$(".characterText").text(userText)
+
 	};

@@ -1,11 +1,12 @@
 module.exports =function (sequelize, DataTypes){
 	var User = sequelize.define("User", {
 		id_token:{
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			
 		},
 		user_id: {
-			type:DataTypes.TEXT,
+
+			type: DataTypes.TEXT,
 		},
 		user_name: {
 			type: DataTypes.STRING,

@@ -2,43 +2,62 @@
 	{{!-- header --}}
 	<h1>Character Creator</h1>
 
-<button onclick="window.location.href='/menu'" class="btn btn-characterCreate" id = "menuBtn">Back to the menu!</button>
-{{!-- <a href="/menu"><button type="button" class="btn btn-secondary btn-rounded" id = "menuBtn">Back to the menu!</button></a> --}}
-<hr>
-{{!-- action form to capture user input --}}
-<form>
-	{{!-- character class options for new character --}}
-	Character Class:
+	<button onclick="window.location.href='/menu'" type="button" class="btn btn-characterCreate btn-deep-orange" id="menuBtn">Back to the menu!</button>
 
-	<select id="characterClass">
+	<hr> {{!-- action form to capture user input --}}
+	<form>
+		{{!-- character class options for new character --}}
+		<div class="row">
+			<div class="col">
+				<h2 class="align-middle">Character First Name:</h2>
 
-		<option value="Wizard">Wizard</option>
-		<option value="Warrior">Warrior</option>
-		<option value="Rogue">Rogue</option>		
-	</select>
-	<p></p>
-	<div>
-		<img id="displayChar" class="img-fluid" src= "">
-	</div>
-<hr>
-	{{!-- get a character name --}}
-	Character First Name:
+				<input type="text" id="charName1">
+				<p></p> {{!-- get a character last name --}}
+				<h2>Character Last Name:</h2>
+				<input type="text" id="charName2">
+				<h2>Character Class:</h2>
 
-	<input type="text" id = "charName1">
-	<br>
-	{{!-- get a character last name --}}
-	<h3>Character Last Name:</h3>
-	<input type="text" id = "charName2">
-	<br>
-<button id = "submitCharacter" type = "button" class = "btn">Submit Your Character</button>
 
-</form>
-</div>
+				<select name="Class" id="characterClass" onchange="document.getElementById('displayChar').src = charPixelImg[this.value];">
+					<option value="Wizard">Wizard</option>
+					<option value="Warrior">Warrior</option>
+					<option value="Rogue">Rogue</option>
+				</select>
+				<p></p>
+						<button id="submitCharacter" type="button" class="btn btn-success btn-lg btn-block">Save Character</button>
+			</div>
+			<div class="col">
+				<p></p>
+				<div>
+					<img id="displayChar" class="img-fluid" src="images/characterimages/wizard.png">
+				</div>
+			</div>
+		</div>
+
+
+		<hr> {{!-- get a character name --}}
+
+
+		<button onclick="window.location.href='/character_selector'" type="button" class="btn btn-characterSelect btn-lg btn-block">Pick Character / Fight</button>
 
 	var charPixelImg = {
     "Wizard" : "/assets/characterimages/wizard.png",
     "Warrior" : "/assets/characterimages/warrior.png",
 		"Rogue" : "/assets/characterimages/rogue.png"
 };
+
+
+	</form>
+</div>
+<script>
+	var cookies = Cookies.get('id_token');
+	if (cookies == undefined) {
+		location.href = "/";
+	}
+	var charPixelImg = {
+		"Wizard": "images/characterimages/wizard.png",
+		"Warrior": "images/characterimages/warrior.png",
+		"Rogue": "images/characterimages/rogue.png"
+	};
 
 </script>
