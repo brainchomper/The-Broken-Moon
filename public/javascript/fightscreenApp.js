@@ -13,7 +13,7 @@
 	function buttonMaker(obj) {
 		console.log("obj", obj)
 		return $("<button>")
-			.addClass("monsterSearchBtn")
+			.addClass("btn btn-danger monsterSearchBtn")
 			.attr("value", obj)
 			.text("Fight " + obj + " Monster");
 	}
@@ -111,13 +111,13 @@
 
 		// update the fightrow with a button
 		var fightBtn = $("<button>")
-			.addClass("fightStartBtn")
+			.addClass("btn btn-success fightStartBtn")
 			.text("Start the fight!");
 		var newChallenge = $("<button>")
-			.addClass("startOverBtn")
+			.addClass("btn btn-indigo startOverBtn")
 			.text("Change Difficulty Rating");
 		var newMonster = $("<button>")
-			.addClass("monsterSearchBtn")
+			.addClass("btn btn-pink monsterSearchBtn")
 			.attr("value", challengeRating)
 			.text("Random Monster (Same Difficulty)");
 

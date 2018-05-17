@@ -1,10 +1,8 @@
 <div class="container fightGame" id="fightGame">
 
-
-	<a href="/menu">
-		<button type="button" class="btn" id="menuBtn">Back to the menu!</button>
-	</a>
-
+<div class="text-center">
+<button onclick="window.location.href='/menu'" type="button" class="btn btn-deep-orange btn-block" id="menuBtn">Back to the menu!</button>
+</div>
 	<div class="row" id="fightRow"></div>
 	{{!-- info for the character --}}
 	<div class="row">
@@ -15,10 +13,12 @@
 
 		</div>
 		{{/each}}
+		<div class="text-center">
 		<div id="challengeBtns">
-			<button class="monsterSearchBtn" value="Easy">Fight Easy Monster</button>
-			<button class="monsterSearchBtn" value="Medium">Fight Medium Monster</button>
-			<button class="monsterSearchBtn" value="Hard">Fight Hard Monster</button>
+			<button class="btn btn-primary monsterSearchBtn" value="Easy">Fight Easy Monster</button>
+			<button class="btn btn-secondary monsterSearchBtn" value="Medium">Fight Medium Monster</button>
+			<button class="btn btn-danger monsterSearchBtn" value="Hard">Fight Hard Monster</button>
+		</div>
 		</div>
 		{{!-- info for the monster and the buttons --}}
 		<div class="col md 6" id="monsterDiv">
