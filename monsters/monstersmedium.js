@@ -5,7 +5,7 @@
 var monstersMedium = [
 	{
 		"name": "Necromancer",
-		"photo": "",
+		"photo": "images/monsterimages/necromancer.png",
 		"scores": [
 			hp = 10,
 			str = 5,
@@ -17,7 +17,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Gorgon",
-		"photo": "/images/monsterimages/gorgon.png",
+		"photo": "images/monsterimages/gorgon.png",
 		"scores": [
 			hp = 10,
 			str = 6,
@@ -29,7 +29,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Gunslinger",
-		"photo": "/images/monsterimages/gunslinger.png",
+		"photo": "images/monsterimages/gunslinger.png",
 		"scores": [
 			hp = 10,
 			str = 5,
@@ -53,7 +53,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Mummy",
-		"photo": "/images/monsterimages/mummy.png",
+		"photo": "images/monsterimages/mummy.png",
 		"scores": [
 			hp = 10,
 			str = 5,
@@ -77,7 +77,7 @@ var monstersMedium = [
 	},
 	{
 		"name": "Dune-Stalker",
-		"photo": "",
+		"photo": "images/monsterimages/dunestalker.png",
 		"scores": [
 			hp = 10,
 			str = 4,
