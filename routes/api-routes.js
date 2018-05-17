@@ -36,8 +36,7 @@ module.exports = function (app) {
 			res.json(dbuser)
 		})
 	});
-
-
+	
 	app.get("/api/user/info", function (req, res) {
 		db.User.find({
 			where: {
