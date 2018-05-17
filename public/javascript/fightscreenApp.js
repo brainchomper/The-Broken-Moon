@@ -61,7 +61,7 @@
 				var fightChar = new Character(uA);
 				var fightMon = new Monster(monsterName, monsterScoreArr);
 
-				battle(fightChar, fightMon, results);
+				battle(fightChar, fightMon);
 
 			})
 
@@ -114,7 +114,7 @@
 
 		var monsterImg = $("<img>")
 		.attr("src", obj.photo)
-		.addClass("displayFightMon")
+		.addClass("displayFightMon animated flip")
 		// move the buttons out and replace w/ the monster info
 		$("#monsterDiv").html(monsterImg);
 
@@ -137,6 +137,11 @@
 
 		$("#challengeBtns").empty()
 	};
+
+	// function that will allow us to make random values out of the attack items each time
+	function randomRoll(strength){
+	return	Math.floor(Math.random()* strength) + 1
+	}
 
 	function Character(obj) {
 		this.charClass = obj.character_class
@@ -161,7 +166,7 @@
 
 		// method which takes in a second object and decreases their "hitpoints" by this character's strength
 		this.attack = function (character2) {
-			character2.hp -= this.str;
+			character2.hp -= randomRoll(this.str);
 		};
 
 		// method which increases this character's stats when called
@@ -192,20 +197,26 @@
 
 		// method which takes in a second object and decreases their "hitpoints" by this character's strength
 		this.attack = function (character2) {
-			character2.hp -= this.str;
+			character2.hp -= randomRoll(this.str);
 		};
 	}
 
-	function battle(obj1, obj2, obj3) {
+	function battle(obj1, obj2) {
 
 		obj1.attack(obj2);
 		obj2.attack(obj1);
+		var obj1Alive = obj1.isAlive();
+		var obj2Alive = obj2.isAlive();
 
-		if (obj1.isAlive() && obj2.isAlive()) {
+		console.log("Obj1: ",  obj1Alive, "Obj2 Alive:", obj2Alive);
+		if (obj1Alive && obj2Alive) {
+			console.log("More fisticuffs!")
 			battle(obj1, obj2)
-		} else if (obj1.isAlive()) {
-			win(obj1)
+		} else if (obj1Alive && !obj2Alive) {
+			console.log("The user won!")
+			win(obj1);
 		} else {
+			console.log("The user lost!")
 			lose();
 		}
 	};
@@ -242,7 +253,7 @@
 			newInt: obj1.int,
 			newAgi: obj1.agi,
 			newLoot: obj1.loot,
-			newExp: obj.exp
+			newExp: obj1.exp
 		}
 
 		$.ajax({
@@ -254,4 +265,20 @@
 			$(".fightStartBtn").text("Fight This Monster Again!")
 		});
 	};
+
+	function loadGameOver() {
+    setTimeout(function () {
+					window.location="/game_over";
+    }, 5000);
+}
+function lose(){
+	$("#char1").addClass("animated flash");
+	$(".displayFightMon animated flip").addClass("")
+	setTimeout(function(){
+		$("#char1").addClass("slideOutDown")
+	}, 3000)
+	loadGameOver();
+	
+}
+
 
