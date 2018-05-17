@@ -46,7 +46,7 @@ $('#submitCharacter').on("click", function (event) {
 			console.log("the query has posted")
 			$("#charName1").val(""),
 				$("#charName2").val("")
-		});
+		}).then(location.reload());
 });
 
 
