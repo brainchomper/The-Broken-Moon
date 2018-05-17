@@ -5,6 +5,7 @@
 var bosses = [
 	{
 		"name": "Sloth",
+
 		"photo": "images/bossimages/sloth.png",
 		"scores": [
 			hp = 12,
@@ -17,6 +18,7 @@ var bosses = [
 	},
 	{
 		"name": "Envy",
+
 		"photo": "images/bossimages/envy.png",
 		"scores": [
 			hp = 18,

@@ -17,6 +17,7 @@
 				<input type="text" id="charName2">
 				<h2>Character Class:</h2>
 
+
 				<select name="Class" id="characterClass" onchange="document.getElementById('displayChar').src = charPixelImg[this.value];">
 					<option value="Wizard">Wizard</option>
 					<option value="Warrior">Warrior</option>
@@ -38,6 +39,12 @@
 
 
 		<button onclick="window.location.href='/character_selector'" type="button" class="btn btn-characterSelect btn-lg btn-block">Pick Character / Fight</button>
+
+	var charPixelImg = {
+    "Wizard" : "/assets/characterimages/wizard.png",
+    "Warrior" : "/assets/characterimages/warrior.png",
+		"Rogue" : "/assets/characterimages/rogue.png"
+};
 
 
 	</form>

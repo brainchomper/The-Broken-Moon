@@ -40,36 +40,12 @@ var monstersMedium = [
 		]
 	},
 	{
-		"name": "Bear",
-		"photo": "",
-		"scores": [
-			hp = 10,
-			str = 7,
-			agi = 4,
-			int = 2,
-			exp = 6
-
-		]
-	},
-	{
 		"name": "Mummy",
 		"photo": "images/monsterimages/mummy.png",
 		"scores": [
 			hp = 10,
 			str = 5,
 			agi = 3,
-			int = 3,
-			exp = 6
-
-		]
-	},
-	{
-		"name": "Guard",
-		"photo": "",
-		"scores": [
-			hp = 10,
-			str = 6,
-			agi = 5,
 			int = 3,
 			exp = 6
 

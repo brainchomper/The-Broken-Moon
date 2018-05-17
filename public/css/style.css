@@ -22,6 +22,7 @@ p,h1,h2,h3{
 }
 
 
+
 h1, p, h3 {
 	color: white;
 }
@@ -51,6 +52,7 @@ input[type=text] {
 	color: white;
 }
 
+
 #displayChar {
 	background-color: #505050;
 }
@@ -77,6 +79,7 @@ input[type=text] {
 }
 
 .displayFightMon {
+
 	height: 27%;
 	width: 15%;
 	position: relative;
