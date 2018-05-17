@@ -11,4 +11,10 @@
 	</div>
 	<div class="col"></div>
 </div>
+<script>
+	var cookies = Cookies.get('id_token');
+	if (cookies == undefined) {
+		location.href = "/";
+	}
+</script>
 
