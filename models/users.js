@@ -5,6 +5,7 @@ module.exports =function (sequelize, DataTypes){
 			
 		},
 		user_id: {
+
 			type: DataTypes.TEXT,
 		},
 		user_name: {

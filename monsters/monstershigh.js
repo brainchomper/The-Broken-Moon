@@ -4,21 +4,9 @@
 // ===============================================================================
 var monstersHigh = [
 	{
-		"name": "Dragon",
-		"photo": "",
-		"scores": [
-			hp = 30,
-			str = 14,
-			agi = 12,
-			int = 15,
-			exp = 15
-		
-		]
-	},
-	{
 		"name": "Demon",
-		"photo": "images/monsterimages/demon.png",
 
+		"photo": "images/monsterimages/demon.png",
 		"scores": [
 			hp = 27,
 			str = 12,
@@ -31,7 +19,6 @@ var monstersHigh = [
 	{
 		"name": "Vampire",
 		"photo": "images/monsterimages/vampire.png",
-
 		"scores": [
 			hp = 35,
 			str = 11,
@@ -45,7 +32,6 @@ var monstersHigh = [
 	{
 		"name": "Eye",
 		"photo": "images/monsterimages/eye.png",
-
 		"scores": [
 			hp = 25,
 			str = 14,
@@ -63,18 +49,6 @@ var monstersHigh = [
 			str = 13,
 			agi = 10,
 			int = 17,
-			exp = 15
-
-		]
-	},
-	{
-		"name": "Hell-Hound",
-		"photo": "",
-		"scores": [
-			hp = 25,
-			str = 18,
-			agi = 13,
-			int = 14,
 			exp = 15
 
 		]
